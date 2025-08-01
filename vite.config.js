@@ -1,11 +1,15 @@
-// vite.config.js
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import crypto from 'crypto-browserify';
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  base: '/', // <-- production uchun bu TÖG'RI, agar root domain bo'lsa
-  build: {
-    outDir: 'dist',
+  define: {
+    'process.env': {},
+    'global': {},
   },
-})
+  resolve: {
+    alias: {
+      crypto: 'crypto-browserify',
+    },
+  },
+});
