@@ -1,5 +1,6 @@
 // src/router.jsx (yoki qayerda bo‘lsa)
-import { createBrowserRouter, createHashRouter } from 'react-router-dom';
+import React from 'react';
+import { createHashRouter } from 'react-router-dom';
 import MainLayout from "./layout/MainLayout";
 import AdminLayout from "./layout/AdminLayout";
 import SignIn from './Components/SignIn';
