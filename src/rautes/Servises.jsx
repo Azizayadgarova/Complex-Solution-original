@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import search from '../assets/iguald.webp'
 import {
   FaTools, FaFileAlt, FaLaptopCode, FaChartLine, FaProjectDiagram
 } from 'react-icons/fa';
@@ -21,9 +22,20 @@ const Servises = () => {
   return (
     <div className="bg-white min-h-screen">
       {/* Header */}
-      <div className="bg-[#0E1F51] py-16 text-center">
-        <h1 className="text-[#FF3E54] text-[48px] font-bold mb-2">{t('our_services')}</h1>
-        <p className="text-white text-[18px]">{t('home')} / {t('services')}</p>
+      <div
+        className="relative py-[180px] text-center text-white bg-cover bg-center"
+        style={{ backgroundImage: `url(${search})` }}
+      >
+        {/* ✅ Overlay */}
+        <div className="absolute inset-0 bg-[#355c6e] opacity-50 z-0"></div>
+
+        {/* ✅ Matn (overlay ustida bo'lishi uchun z-10) */}
+        <div className="relative z-10">
+          <h1 className="text-6xl font-bold mb-2">{t('our_services')}</h1>
+          <p className="text-[20px] font-bold text-white">
+            {t('home')} / {t('services')}
+          </p>
+        </div>
       </div>
 
       {/* Xizmat Tab Buttonlar */}
@@ -37,8 +49,8 @@ const Servises = () => {
               `flex items-center gap-2 px-5 py-3 text-[16px] font-semibold rounded-full border 
               transition duration-300 ease-in-out
               ${isActive
-                ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-md'
-                : ' text-[#0E1F51] hover:border-[#FF3E54] hover:text-[#FF3E54]'}` }
+                ? 'bg-gradient-to-r from-[#4CAF50]  to-[#0066CC] text-white shadow-md'
+                : ' text-[#2a5e91] hover:border-[#0066CC] hover:text-[#2a5e91]'}`}
           >
             <span className="text-[18px]">{icon}</span>
             <span>{label}</span>
@@ -51,9 +63,9 @@ const Servises = () => {
 
       {/* Orqaga tugmasi */}
       <div className="flex justify-center my-10">
-        <button
+         <button
           onClick={() => navigate('/')}
-          className='bg-[#FF3E54] text-white px-8 py-3 rounded-full text-[16px] font-semibold shadow-md hover:bg-[#e62b42] transition-transform hover:scale-105'
+          className="bg-[#2a5e91] text-white px-8 py-3 rounded-full text-[16px] font-semibold shadow-md hover:bg-[#3b74a6] transition-transform hover:scale-105"
         >
           ← {t('back_to_home')}
         </button>

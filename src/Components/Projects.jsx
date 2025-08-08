@@ -76,8 +76,8 @@ const Projects = () => {
                 title={project.link ? t('projects_view_project') : t('projects_view_code')}
                 // --- START: MODIFIED STYLES TO MATCH IMAGE ---
                 className="absolute bottom-4 right-4 w-12 h-12 flex items-center justify-center rounded-full
-                           bg-[#90EE90] text-white text-xl transition-all duration-300 transform
-                           hover:scale-111 hover:shadow-lg" // Added hover effects
+                           bg-[#2a5e91]  text-white text-xl transition-all duration-300 transform
+                           hover:scale-111 hover:shadow-lg " // Added hover effects
                 style={{
                   clipPath: 'polygon(0% 0%, 100% 0%, 100% 70%, 50% 100%, 0% 70%)', // Arrow shape from image
                 }}

@@ -1,7 +1,7 @@
 // src/router.jsx (yoki qayerda bo‘lsa)
 import React from 'react';
 import { createHashRouter } from 'react-router-dom';
-import MainLayout from "./layout/MainLayout";
+import MainLayout from './layout/MainLayout';
 import AdminLayout from "./layout/AdminLayout";
 import SignIn from './Components/SignIn';
 import Home from "./rautes/Home";

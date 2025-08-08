@@ -111,7 +111,7 @@ const OurProcess = () => {
     <section className="bg-white py-24 px-6 lg:px-32">
       <div className="mx-auto"> {/* max-w-4xl olib tashlandi */}
         <div className="mb-16 text-center">
-          <p className="text-base uppercase text-[#0066CC] font-semibold tracking-wider">
+          <p className="text-base uppercase text-[#3b74a6] font-semibold tracking-wider">
             {t('ourprocess.tagline')}
           </p>
           <h2 className="text-4xl lg:text-5xl font-bold text-[#333333] mt-4 text-center">

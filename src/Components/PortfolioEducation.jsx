@@ -1,42 +1,50 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import portfolioimg1 from '../assets/Frame1.svg';
-import { useTranslation } from 'react-i18next'; // useTranslation hook'ini import qildim
-const PortfolioEducation = () => {
-  const { t } = useTranslation(); // t funksiyasini olish
-  return (
-    <div>
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-[20px] 
-                      py-8 sm:py-10 md:py-12 lg:py-5 
-                      mt-8 sm:mt-12 md:mt-[50px] 
-                      rounded-3xl bg-gray-50 shadow-2xl 
-                      flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-[10%] items-center'>
-        <div className='w-full md:w-[40%] flex justify-center mb-6 md:mb-0'>
-          {/* Tarjima kalitini alt text uchun ishlatish */}
-          <img className='max-w-full h-auto object-contain' src={portfolioimg1} alt={t('portfolio_education.alt_text')} />
-        </div>
+import { useTranslation } from 'react-i18next';
 
-        <div className='w-full md:w-[40%] md:pl-8 text-center md:text-left'>
-          {/* Tarjima kalitini sarlavha uchun ishlatish */}
-          <h3 className='text-gray-900 text-2xl sm:text-3xl md:text-4xl lg:text-[38px] mt-3 font-medium mb-3'>
+const PortfolioEducation = () => {
+  const { t } = useTranslation();
+
+  const features = t('portfolio_education.features', { returnObjects: true });
+
+  return (
+    <div className="bg-white text-[#0E1F51] py-20  ">
+      <div className=" px-[4%]  flex   items-center  ">
+
+        {/* 1. Chap qism: matnlar va feature buttonlar */}
+        <div className="flex-1  mt-8  lg:mt-0">
+          <h3 className="text-3xl sm:text-3xl font-bold w-[0%] mb-4 text-[#0E1F51]">
             {t('portfolio_education.title')}
           </h3>
-          {/* Tarjima kalitini tavsif uchun ishlatish */}
-          <p className='text-gray-500 py-4 sm:py-5 text-sm sm:text-base md:text-lg lg:text-[18px] leading-relaxed'>
+          <p className="text-gray-600 text-[16px] mb-6 max-w-md w-[65%] ">
             {t('portfolio_education.description')}
           </p>
-          <div className='mt-4 py-4 flex flex-wrap text-xs sm:text-sm md:text-base lg:text-[16px] text-gray-600 gap-2 sm:gap-3 md:gap-[10px] justify-center md:justify-start'>
-            {/* Xususiyatlar ro'yxatini tarjima qilish. returnObjects: true bilan massiv qaytariladi */}
-            {t('portfolio_education.features', { returnObjects: true }).map((feature, index) => (
-              <p key={index} className='rounded-[15px] px-3 py-1.5 bg-gray-100 font-medium text-center'>
+        </div>
+
+        {/* 2. O'ng qism: rasm */}
+        <div className="flex-1 lg:order-2 order-1 flex gap-[180px] items-center ">
+          <img
+            src={portfolioimg1}
+            alt={t('portfolio_education.alt_text')}
+            className="w-full max-w-[70%] h-[370px]  object-cover shadow-2xl border-4 border-[#0E1F51]"
+          />
+          <div className="flex flex-col gap-3 mt-6">
+            {features.map((feature, index) => (
+              <button
+                key={index}
+                className="bg-white text-[#0E1F51] border border-[#0E1F51] px-4 py-2 rounded-full text-left hover:bg-[#0E1F51] hover:text-white transition-all duration-300"
+              >
                 {feature}
-              </p>
+              </button>
             ))}
           </div>
         </div>
+        
       </div>
       <Outlet />
     </div>
   );
-}
-export default PortfolioEducation;
+};
+
+export default PortfolioEducation;  

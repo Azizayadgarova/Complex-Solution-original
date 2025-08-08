@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import React from "react";
 import { useTranslation } from 'react-i18next';
 import { useState } from "react";
 import coponylogo from '../assets/logo.png';
 
-const HOVER_COLOR = 'red';
+const HOVER_COLOR = '#2a5e91';
 
 export default function Navbar() {
     const { t, i18n } = useTranslation();
@@ -13,7 +14,7 @@ export default function Navbar() {
     const closeMenu = () => setMenuOpen(false);
 
     return (
-        <div className="bg-[#F7F7F7] fixed top-0 left-0 right-0 w-full z-50 shadow-sm">
+        <div className="bg-[#F7F7F7] fixed top-0 mb-[200px] left-0 right-0 w-full z-50 shadow-sm">
             <div className="flex items-center justify-between py-[18px] px-[4%]">
                 <div>
                     <Link to="/" onClick={closeMenu}>
