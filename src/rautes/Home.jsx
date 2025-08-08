@@ -171,6 +171,7 @@ const Home = () => {
             <button onClick={handleClick} className='w-36 h-12 sm:w-40 sm:h-17 mt-4 px-6 py-3 bg-[#4CAF50] text-white rounded-md hover:bg-[#388E3C] transition-colors duration-300'>
               {t('view_more')}
             </button>
+            <h2>hello</h2>
           </div>
           <div className="md:w-1/2 flex justify-center relative z-10">
             <img src={image} alt="Business growth" className="max-w-full h-[400px] h-auto relative z-0" />
@@ -200,7 +201,7 @@ const Home = () => {
 
       <Statistics />
       <Skill />
- <Advantages />
+      <Advantages />
       <Projects />
       <GetInTuch />
     </div>
