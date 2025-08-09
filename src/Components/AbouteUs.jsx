@@ -48,14 +48,7 @@ const AbouteUs = () => {
               {t('button')}
             </button>
 
-            {/* Strelka (faqat md+ ekranlarda) */}
-            <motion.img
-              src={strelka}
-              alt="strelka"
-              className="hidden md:block w-[80px] h-[100px] lg:w-[140px] lg:h-[150px]"
-              animate={{ x: [0, 20, 0, -40, 0], y: [0, -5, 0, 5, 0] }}
-              transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
-            />
+           
           </div>
         </div>
       </div>
