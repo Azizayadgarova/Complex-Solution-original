@@ -39,10 +39,10 @@ const Footer = () => {
           <hr className="w-[50px] border-t-4 rounded-md border-white mb-4" />
           <p className="text-sm mb-4">{t('footer.about_us_text')}</p>
           <div className="flex gap-3">
-            <a href="#" className="bg-white text-[#0E1F51] p-2 rounded-full hover:bg-[#FF3E54] hover:text-white"><FaLinkedin /></a>
-            <a href="#" className="bg-white text-[#0E1F51] p-2 rounded-full hover:bg-[#FF3E54] hover:text-white"><FaInstagram /></a>
-            <a href="#" className="bg-white text-[#0E1F51] p-2 rounded-full hover:bg-[#FF3E54] hover:text-white"><FaFacebook /></a>
-            <a href="#" className="bg-white text-[#0E1F51] p-2 rounded-full hover:bg-[#FF3E54] hover:text-white"><FaTwitter /></a>
+            <a href="#" className="bg-white text-[#0E1F51] p-2 rounded-full hover:bg-[#0E1F51] hover:text-white"><FaLinkedin /></a>
+            <a href="#" className="bg-white text-[#0E1F51] p-2 rounded-full hover:bg-[#0E1F51] hover:text-white"><FaInstagram /></a>
+            <a href="#" className="bg-white text-[#0E1F51] p-2 rounded-full hover:bg-[#0E1F51] hover:text-white"><FaFacebook /></a>
+            <a href="#" className="bg-white text-[#0E1F51] p-2 rounded-full hover:bg-[#0E1F51] hover:text-white"><FaTwitter /></a>
           </div>
         </div>
 

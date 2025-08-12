@@ -6,45 +6,62 @@ import { useTranslation } from 'react-i18next';
 const PortfolioEducation = () => {
   const { t } = useTranslation();
 
-  const features = t('portfolio_education.features', { returnObjects: true });
-
   return (
-    <div className="bg-white text-[#0E1F51] py-20  ">
-      <div className=" px-[4%]  flex   items-center  ">
-
-        {/* 1. Chap qism: matnlar va feature buttonlar */}
-        <div className="flex-1  mt-8  lg:mt-0">
-          <h3 className="text-3xl sm:text-3xl font-bold w-[0%] mb-4 text-[#0E1F51]">
-            {t('portfolio_education.title')}
-          </h3>
-          <p className="text-gray-600 text-[16px] mb-6 max-w-md w-[65%] ">
-            {t('portfolio_education.description')}
-          </p>
-        </div>
-
-        {/* 2. O'ng qism: rasm */}
-        <div className="flex-1 lg:order-2 order-1 flex gap-[180px] items-center ">
+    <div className="min-h-screen font-sans bg-white px-[5%] py-8 sm:py-12 md:py-16">
+      <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-8 md:gap-12 lg:gap-16">
+        {/* Left Section — Image */}
+        <div className="w-full md:w-1/2 flex items-start justify-start order-2 md:order-1 mt-8 md:mt-0">
           <img
             src={portfolioimg1}
             alt={t('portfolio_education.alt_text')}
-            className="w-full max-w-[70%] h-[370px]  object-cover shadow-2xl border-4 border-[#0E1F51]"
+            className="w-full rounded-[20px] h-auto object-contain shadow-xl"
           />
-          <div className="flex flex-col gap-3 mt-6">
-            {features.map((feature, index) => (
-              <button
-                key={index}
-                className="bg-white text-[#0E1F51] border border-[#0E1F51] px-4 py-2 rounded-full text-left hover:bg-[#0E1F51] hover:text-white transition-all duration-300"
-              >
-                {feature}
-              </button>
-            ))}
+        </div>
+
+        {/* Right Section — Text */}
+        <div className="w-full md:w-1/2 flex flex-col justify-between md:pl-8 order-1 md:order-2">
+          <div>
+            {/* Title */}
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-medium text-gray-700 mb-6 leading-snug">
+              {t('portfolio_education.title')}
+            </h3>
+            <p className="text-gray-600 text-sm md:text-base mb-6 leading-relaxed">
+              {t('portfolio_education.description')}
+            </p>
+
+            {/* Advantages */}
+            <p className="text-gray-600 text-sm md:text-base mb-6 leading-relaxed">
+              <span className="font-bold text-[#1f4b73]">   {t('advantag')}</span>{' '}
+              {t('portfolio_education.advantages')}
+            </p>
+
+            {/* New Features */}
+            <h4 className="text-[#1f4b73] text-base font-bold mb-4">
+              {t('chances')}
+            </h4>
+            <div className="grid grid-cols-2 gap-y-4 text-sm md:text-base">
+              {t('portfolio_education.features', { returnObjects: true }).map(
+                (feature, index) => (
+                  <div key={index} className="flex items-center">
+                    {/* The image shows a checkmark in a colored circle */}
+                    <span className="text-[#4D9C2E] mr-2  rounded-full w-5 h-5 flex items-center justify-center text-xs">
+                      ✓
+                    </span>
+                    <p className="text-gray-600">{feature}</p>
+                  </div>
+                )
+              )}
+            </div>
+           
           </div>
         </div>
-        
       </div>
+
+      {/* Footer is now outside the main flex container to align it with the content */}
+
       <Outlet />
     </div>
   );
 };
 
-export default PortfolioEducation;  
+export default PortfolioEducation;

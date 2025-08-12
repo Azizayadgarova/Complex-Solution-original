@@ -4,6 +4,7 @@ import PortfolioEducation from './PortfolioEducation';
 import PortfolioLife from './PortfolioLife';
 import PortfolioNature from './PortfolioNature'
 import PortfolioSector from './PortfolioSector'
+import PortfolioTravel from './PortfolioTravel';
 
 const PortfolioAll = () => {
   return (
@@ -13,7 +14,7 @@ const PortfolioAll = () => {
   <PortfolioMoments/>
  <PortfolioNature/>
  <PortfolioSector/>
-
+<PortfolioTravel/>
  
   </div>
   );

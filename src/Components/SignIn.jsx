@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAdmin } from '../context/AdminContext'; // ✅ Context import
-import logo from '../assets/coponylogo.png';
+import logo from '../assets/removelogo.png';
 import video from '../assets/video.mp4';
 import eye1 from '../assets/eye1.png';
 import eye2 from '../assets/eye2.png';
@@ -122,7 +122,7 @@ const SignIn = () => {
       <div className="relative z-20 w-full max-w-md space-y-6 p-6 sm:p-10 bg-white bg-opacity-60 rounded-xl shadow-2xl backdrop-blur-md">
         <div className="flex flex-col items-center">
           <img src={logo} alt="Company Logo" className="w-20 h-20 sm:w-24 sm:h-24 mb-2 object-contain" />
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#0E1F51]">{t('welcome')}</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1E3E5F]">{t('welcome')}</h2>
         </div>
 
         <form className="space-y-5" onSubmit={handleSubmit}>
@@ -172,7 +172,7 @@ const SignIn = () => {
           <button
             type="submit"
             disabled={!isFormValid}
-            className={`w-full py-3 px-4 text-sm font-semibold rounded-md text-white shadow transition ${isFormValid ? 'bg-[#0E1F51] hover:bg-[#1C2A4D]' : 'bg-gray-400 cursor-not-allowed'}`}
+            className={`w-full py-3 px-4 text-sm font-semibold rounded-md text-white shadow transition ${isFormValid ? 'bg-[#2A5E91] hover:bg-[#1E3E5F ]' : 'bg-gray-400 cursor-not-allowed'}`}
           >
             {t('signInButton')}
           </button>

@@ -66,11 +66,78 @@
     "advantages_4_title": "Sifat kafolati",
     "advantages_4_content": "Yuqori sifat standartlari, jarayonlarning shaffofligi va mijozlar oldidagi majburiyatlar bizning ustuvorligimizdir.",
     "advantages_5_title": "Adaptivlik",
+    "advantag":"Afzalliklari:",
+    "chances":"Imkoniyatlari:",
     "advantages_5_content": "Biz loyihalarni kengaytirish va o‘zgaruvchan talablar bilan moslashishda yuqori darajadagi moslashuvchanlikni taqdim etamiz.",
     "skill_title_part1": "Har bir soha uchun",
     "skill_title_highlight": "innovatsion",
     "skill_title_part2": "yondashuv",
     "skill_button": "Baholash olish",
+    "portfolio_life": {
+        "title": "Operatorlar uchun ijaraga shartnoma boshqarish platformasi",
+        "description": "Telekommunikatsiya operatorlari uchun zaxira yer uchastkalarini ajratish va ijaraga shartnoma tuzishni avtomatlashtirish uchun maxsus axborot tizimi ishlab chiqildi. Tizim jarayonni to‘liq raqamli qo‘llab-quvvatlaydi — ariza berishdan shartnoma tuzishgacha, qog‘oz ishlarini yo‘q qiladi va barcha ishtirokchilar o‘rtasidagi o‘zaro aloqani tezlashtiradi. Masofadan ariza berish va vakolatli organlar bilan oldindan kelishish, shartnoma tuzishni avtomatlashtirish, arizalarni kelishish bosqichlarini monitoring qilish orqali jarayonning shaffofligi va nazoratini ta'minlaydi.",
+        "advantages": "Afzalliklari: masofadan ariza berish va vakolatli organlar bilan oldindan kelishish, shartnoma tuzishni avtomatlashtirish, arizalarni kelishish bosqichlarini monitoring qilish orqali shaffoflik va nazoratni ta'minlash.",
+        "features": [
+            "Ma'lumotlarni himoya qilishning yuqori darajasi va cheklangan kirish huquqi",
+            "Ijaraga shartnoma tuzishni avtomatlashtirish",
+            "Kelishish jarayonining monitoringi",
+            "Foydalanuvchiga qulay interfeys"
+        ],
+        "project": "Loyiha: CENTRBT",
+        "linkText": "Havola: https://centrbt.uz/"
+    },
+    "portfolio_sector": {
+        "title": "AQShning Nyu-York shahridagi kompaniya uchun veb-sayt",
+        "description": "Telekommunikatsiya operatorlari uchun ajratilgan yer uchastkalarini taqsimlash va ijaraga berish shartnomalarini tayyorlash jarayonini avtomatlashtirishga mo‘ljallangan maxsus axborot tizimi ishlab chiqildi. Tizim ariza topshirishdan tortib, shartnoma imzolashgacha bo‘lgan jarayonni to‘liq raqamli tarzda qo‘llab-quvvatlaydi — qog‘oz hujjat aylanishini yo‘q qiladi va barcha ishtirokchilar o‘rtasidagi o‘zaro hamkorlikni tezlashtiradi.",
+        "advantages": "Masofadan turib ariza topshirish va vakolatli organlar bilan dastlabki kelishuv, shartnomani avtomatik yaratish va qayta ishlash, arizalarni tasdiqlash bosqichlarini kuzatish, jarayonning shaffofligi va nazoratini ta’minlash.",
+        "features": [
+            "Geolokatsiya",
+            "Xizmat narxlari",
+            "Portfolio",
+            "Onlayn bron qilish",
+            "Zamonaviy dizayn",
+            "Ustalar haqida ma’lumot"
+        ]
+    },
+    "portfolio_natur": {
+        "title": "Navoiy shahridagi dorixonalar tarmog‘i uchun axborot tizimi, O‘zbekiston",
+        "description": "NAVBAXOR PHARM MChJ uchun ishlab chiqilgan tizim dorixonalar va omborlarni onlayn boshqarish va monitoring qilish, xarid, hisob va logistika jarayonlarini optimallashtirish, shuningdek, xodimlar ish tezligini bir necha barobar oshirish imkonini berdi.",
+        "advantages": "Markazlashtirilgan boshqaruv, tezkor ma’lumot olish, xatolarni kamaytirish va xarajatlarni qisqartirish.",
+        "features": [
+            "OFD va XPrinter",
+            "Orbit skaneri",
+            "Buyurtmalarni avtomatlashtirish",
+            "Zaxiralarni onlayn monitoring qilish",
+            "Dorixonalarni inventarizatsiya qilish",
+            "Nakladnoylar",
+            "Tezkor savdo"
+        ]
+    },
+   "portfolio_moment": {
+    "title": "Mijozlar uchun Data markaz Cloud xizmatlari boshqaruv paneli",
+    "description": "Data-markazning bulutli xizmatlarini boshqarish platformasi ishlab chiqilmoqda, u virtual va jismoniy serverlarni ajratish, virtual resurslarga kvotalarni boshqarish, «Virtual data-markaz» xizmatini taqdim etish va barcha Cloud-xizmatlarni boshqarishni o‘z ichiga oladi.",
+    "advantages": "Moslashuvchan masshtablash, markazlashtirilgan boshqaruv, yuqori unumdorlik va xavfsizlik.",
+    "features": [
+        "Avtomatlashtirilgan resurslarni ajratish",
+        "✓ Click, Payme, Paynet",
+        "✓ VIZA, UnionPay",
+        "✓ Virtual mashinalarni boshqarish",
+        "✓ Serverlar holatini monitoring qilish"
+    ]
+},
+    "portfolio_nature": {
+        "title": "O‘zbekiston Respublikasi qishloq xo‘jalik yerlarini ijaraga berish yagona tizimi",
+        "description": "Yer uchastkalari loyihalarini shakllantirish, vakolatli tashkilotlar bilan elektron kelishuv, uchastkalarni auksionga chiqarish, elektron ijara shartnomasi tuzish va kadastr hujjatlarini shakllantirish imkonini beruvchi tizim ishlab chiqildi va joriy etildi.",
+        "advantages": "Shaffoflik va tezkorlik, davlat axborot tizimlari va platformalari bilan integratsiya, hujjatlar aylanishini avtomatlashtirish.",
+        "features": [
+            "E-AUKSION",
+            "UzCAD",
+            "OneID, E-IMZO",
+            "Status monitoringi",
+            "Qulay boshqaruv interfeysi",
+            "Ijaraga olingan qishloq xo‘jalik yerlarining xaritasi"
+        ]
+    },
     "footer": {
         "about_us": "Biz haqimizda",
         "about_us_text": "COMPLEX SOLUTIONS MCHJ — bu innovatsion, kengaytiriladigan va xavfsiz raqamli yechimlarni bizneslar uchun taqdim etuvchi to‘liq siklli IT xizmat ko‘rsatuvchi kompaniya.",
@@ -128,6 +195,19 @@
         "reviews": "Ijobiy fikrlar",
         "partners": "Xorijdagi hamkorlar"
     },
+    "portfolio_education": {
+        "title": "Toshkent shahri, O‘zbekiston uchun onlayn ta’lim platformasi",
+        "description": "“CENTR BEZOPASNOSTI TRUDA” MChJ kompaniyasi uchun mehnat muhofazasi bo‘yicha mutaxassislarni o‘qitish va malakasini oshirishga mo‘ljallangan onlayn ta’lim platformasi ishlab chiqildi. Platforma kurs konstruktorini, Click va Payme orqali onlayn to‘lovni hamda yakunlangach avtomatik sertifikatlar yaratishni o‘z ichiga oladi.",
+        "advantages": "Afzalliklar: masofaviy o‘qish, qulay to‘lov, avtomatik sertifikatlar, kurs xaridlarini kuzatish, kontentni himoya qilish.",
+        "features": [
+            " Kontentni yuklab olishdan himoya qilish",
+            " Click va Payme",
+            " Kurs konstruktori",
+            " Ishtirokchilar progressini tahlil qilish",
+            " Onlayn chat",
+            " Qulay boshqaruv interfeysi"
+        ]
+    },
     "our_services": "Bizning xizmatlar",
     "tech_support": "Texnik yordam",
     "documentation": "Hujjatlar",
@@ -138,12 +218,12 @@
     "portfolio_edu_title": "Toshkentdagi kompaniya uchun onlayn ta’lim platformasi",
     "portfolio_edu_desc": "“CENTR BEZOPASNOSTI TRUDA” MCHJ uchun mehnat muhofazasi bo‘yicha mutaxassislarni onlayn o‘qitish va malaka oshirish platformasi ishlab chiqildi. Platformada kurslar konstruktori, Click va Payme orqali to‘lov, kursdan o‘tganlik haqida sertifikatlar generatsiyasi mavjud.",
     "portfolio_edu_tags": {
-        "content_protection": "✓ Kontentni yuklab olishdan himoyalash",
-        "click_payme": "✓ Click va Payme",
-        "course_builder": "✓ Kurs konstruktori",
-        "analytics": "✓ Ishtirokchilar progessi analitikasi",
-        "chat": "✓ Onlayn chat",
-        "interface": "✓ Qulay boshqaruv interfeysi"
+        "content_protection": " Kontentni yuklab olishdan himoyalash",
+        "click_payme": " Click va Payme",
+        "course_builder": "Kurs konstruktori",
+        "analytics": " Ishtirokchilar progessi analitikasi",
+        "chat": "Onlayn chat",
+        "interface": " Qulay boshqaruv interfeysi"
     },
     "welcome": "Hush kelibsiz!",
     "phoneLabel": "Telefon raqam",

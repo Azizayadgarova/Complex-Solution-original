@@ -76,7 +76,7 @@ const GetInTuch = () => {
         {/* Contact Info */}
         <div className="lg:w-1/2 text-left mt-[100px]">
           <h2 className="text-4xl md:text-5xl font-semibold text-[#2a5e91] mb-6">
-            {t('hello')} <span className="font-normal text-[#292D32]">{t('lets_talk')}</span>
+            {t('hello')} ! <span className="font-normal text-[#292D32]">{t('lets_talk')}</span>
           </h2>
           <p className="text-[#686868] text-base">{t('call_anytime')}</p>
           <p className="text-[#686868] text-base mb-12">{t('thank_you_message')}</p>

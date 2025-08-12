@@ -1,84 +1,67 @@
-import React from 'react'
-import portfolioimg5 from '../assets/Frame5.svg'
-import portfolioimg4 from '../assets/Frame4.svg'
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import portfolioimg1 from '../assets/Frame6.svg';
+import { useTranslation } from 'react-i18next';
 
-import { Outlet } from 'react-router-dom'
+const PortfolioMoments = () => {
+  const { t } = useTranslation();
 
-const PortfolioMoments = () => (
-  <div>
-    {/* Первый блок проекта */}
-    <div className='max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-[20px] 
-                    py-8 sm:py-10 md:py-12 lg:py-5 
-                    mt-8 sm:mt-12 md:mt-[50px] 
-                    rounded-3xl bg-gray-50 shadow-2xl 
-                    flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-[10%] items-center'>
-      
-      {/* Секция изображения: ширина и отступы сделаны адаптивными */}
-      <div className='w-full md:w-[40%] flex justify-center mb-6 md:mb-0'> {/* Добавлен flex для центрирования на мобильных устройствах */}
-        <img className='max-w-full h-auto object-contain' src={portfolioimg5} alt="Изображение проекта 1" />
-      </div>
+  return (
+    <div className="min-h-screen font-sans bg-white px-[5%] py-8 sm:py-12 md:py-16">
+      <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-8 md:gap-12 lg:gap-16">
+        {/* Left Section — Image */}
+        <div className="w-full md:w-1/2 flex items-start justify-start order-2 md:order-1 mt-8 md:mt-0">
+          <img
+            src={portfolioimg1}
+            alt={t('portfolio_education.alt_text')}
+            className="w-full rounded-[20px] h-auto object-contain shadow-xl"
+          />
+        </div>
 
-      {/* Секция текстового контента: ширина, отступы и выравнивание текста сделаны адаптивными */}
-      <div className='w-full md:w-[40%] md:pl-8 text-center md:text-left'>
-        <h3 className='text-gray-900 text-2xl sm:text-3xl md:text-4xl lg:text-[38px] mt-3 font-medium mb-3'> {/* Размеры текста сделаны адаптивными */}
-          Система финансирования лечения лиц входящих в льготную категорию
-        </h3>
-        <p className='text-gray-500 py-4 sm:py-5 text-sm sm:text-base md:text-lg lg:text-[16px] leading-relaxed'> {/* Размеры текста сделаны адаптивными */}
-          Разработана платформа, которая обеспечивает автоматизацию процесса начиная от формирования отчета до финансирования лечения лиц, входящих в льготную категорию. Реализована автоматическая проверка при формировании отчетов на соответствие нормативам, установленным Министерством здравоохранения и Министерством финансов.
-          Преимущества: Прозрачное распределение средств, автоматизация учёта и контроля отчетов, соответствие внесенных данных требованиям аудиторов, снижение бюрократической нагрузки.
-          Новые возможности:
-        </p>
-        
-        {/* Секция тегов: отступы, отступы и размеры текста сделаны адаптивными */}
-        <div className='mt-4 py-4 flex flex-wrap text-xs sm:text-sm md:text-base lg:text-[14px] text-gray-600 gap-2 sm:gap-3 md:gap-[15px] justify-center md:justify-start'> {/* Добавлен justify-center для центрирования на мобильных устройствах */}
-          <p className='rounded-[15px] px-3 py-1.5 bg-gray-100 font-medium text-center'>✓ Онлайн формирование отчетов и отправка на запроса на финансирование</p>
-          <p className='rounded-[15px] px-3 py-1.5 bg-gray-100 font-medium text-center'>✓ MIS, MIS2, DMED</p>
-          <p className='rounded-[15px] px-3 py-1.5 bg-gray-100 font-medium text-center'>✓ ГЦП, Минюст, ГНК, ВТЭК</p>
-          <p className='rounded-[15px] px-3 py-1.5 bg-gray-100 font-medium text-center'>✓ MyGOV </p>
-          <p className='rounded-[15px] px-3 py-1.5 bg-gray-100 font-medium text-center'>✓ OneID, E-IMZO </p>
-          <p className='rounded-[15px] px-3 py-1.5 bg-gray-100 font-medium text-center'>✓ Отслеживание статуса финансирования </p>
+        {/* Right Section — Text */}
+        <div className="w-full md:w-1/2 flex flex-col justify-between md:pl-8 order-1 md:order-2">
+          <div>
+            {/* Title */}
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-medium text-gray-700 mb-6 leading-snug">
+              {t('portfolio_nature.title')}
+            </h3>
+            <p className="text-gray-600 text-sm md:text-base mb-6 leading-relaxed">
+              {t('portfolio_nature.description')}
+            </p>
+
+            {/* Advantages */}
+            <p className="text-gray-600 text-sm md:text-base mb-6 leading-relaxed">
+              <span className="font-bold text-[#1f4b73]">   {t('advantag')}</span>{' '}
+              {t('portfolio_nature.advantages')}
+            </p>
+
+            {/* New Features */}
+            <h4 className="text-[#1f4b73] text-base font-bold mb-4">
+              {t('chances')}
+            </h4>
+            <div className="grid grid-cols-2 gap-y-4 text-sm md:text-base">
+              {t('portfolio_nature.features', { returnObjects: true }).map(
+                (feature, index) => (
+                  <div key={index} className="flex items-center">
+                    {/* The image shows a checkmark in a colored circle */}
+                    <span className="text-[#4D9C2E] mr-2  rounded-full w-5 h-5 flex items-center justify-center text-xs">
+                      ✓
+                    </span>
+                    <p className="text-gray-600">{feature}</p>
+                  </div>
+                )
+              )}
+            </div>
+            
+          </div>
         </div>
       </div>
+
+      {/* Footer is now outside the main flex container to align it with the content */}
+
+      <Outlet />
     </div>
-
-    {/* Второй блок проекта */}
-    <div className='max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-[20px] 
-                    py-8 sm:py-10 md:py-12 lg:py-5 
-                    mt-8 sm:mt-12 md:mt-[50px] 
-                    rounded-3xl bg-gray-50 shadow-2xl 
-                    flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-[10%] items-center'>
-      
-      {/* Секция изображения: ширина и отступы сделаны адаптивными */}
-      <div className='w-full md:w-[40%] flex justify-center mb-6 md:mb-0'> {/* Добавлен flex для центрирования на мобильных устройствах */}
-        <img className='max-w-full h-auto object-contain' src={portfolioimg4} alt="Изображение проекта 2" />
-      </div>
-
-      {/* Секция текстового контента: ширина, отступы и выравнивание текста сделаны адаптивными */}
-      <div className='w-full md:w-[40%] md:pl-8 text-center md:text-left'>
-        <h3 className='text-gray-900 text-2xl sm:text-3xl md:text-4xl lg:text-[38px] mt-3 font-medium mb-3'> {/* Размеры текста сделаны адаптивными */}
-          Информационная система для сети аптек в г.Навои, Узбекистан
-        </h3>
-        <p className='text-gray-500 py-4 sm:py-5 text-sm sm:text-base md:text-lg lg:text-[16px] leading-relaxed'> {/* Размеры текста сделаны адаптивными */}
-          Разработана система для ООО “NAVBAXOR PHARM”, которая позволила управлять и мониторить всеми аптеками и складами в режиме онлайн, оптимизировать процессы закупок, учёта и логистики, а также увеличить скорость работы персонала в несколько раз. 
-          Преимущества: Централизованное управление, быстрый доступ к данным, сокращение ошибок и снижение затрат. 
-          Новые возможности:
-        </p>
-        
-        {/* Секция тегов: отступы, отступы и размеры текста сделаны адаптивными */}
-        <div className='mt-4 py-4 flex flex-wrap text-xs sm:text-sm md:text-base lg:text-[14px] text-gray-600 gap-2 sm:gap-3 md:gap-[15px] justify-center md:justify-start'> {/* Добавлен justify-center для центрирования на мобильных устройствах */}
-          <p className='rounded-[15px] px-3 py-1.5 bg-gray-100 font-medium text-center'>✓ OFD&XPrinter</p>
-          <p className='rounded-[15px] px-3 py-1.5 bg-gray-100 font-medium text-center'>✓ Orbit сканер</p>
-          <p className='rounded-[15px] px-3 py-1.5 bg-gray-100 font-medium text-center'>✓ Автоматизация заказов</p>
-          <p className='rounded-[15px] px-3 py-1.5 bg-gray-100 font-medium text-center'>✓ Онлайн-мониторинг запасов </p>
-          <p className='rounded-[15px] px-3 py-1.5 bg-gray-100 font-medium text-center'>✓ Ревизия аптек </p>
-          <p className='rounded-[15px] px-3 py-1.5 bg-gray-100 font-medium text-center'>✓ Накладные </p>
-          <p className='rounded-[15px] px-3 py-1.5 bg-gray-100 font-medium text-center'>✓ Быстрая продажа </p>
-        </div>
-      </div>
-    </div>
-
-    <Outlet />
-  </div>
-);
+  );
+};
 
 export default PortfolioMoments;

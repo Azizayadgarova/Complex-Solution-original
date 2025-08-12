@@ -1,33 +1,67 @@
-import React from 'react'
-import portfolioimg2 from '../assets/Frame 2.svg'
-import { Outlet } from 'react-router-dom'
-const PortfolioLife = () => (
-  <div>
-    <div className='max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-[20px] 
-                    py-8 sm:py-10 md:py-12 lg:py-5 
-                    mt-8 sm:mt-12 md:mt-[50px] 
-                    rounded-3xl bg-gray-50 shadow-2xl 
-                    flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-[10%] items-center'>
-      <div className='w-full md:w-[40%] flex justify-center mb-6 md:mb-0'> {/* Mobil markazlash uchun flex qo'shildi */}
-        <img className='max-w-full h-auto object-contain' src={portfolioimg2} alt="Loyiha rasmi" />
-      </div>
-      <div className='w-full md:w-[40%] md:pl-8 text-center md:text-left'>
-        <h3 className='text-gray-900 text-2xl sm:text-3xl md:text-4xl lg:text-[38px] mt-3 font-medium mb-3'> {/* Matn o'lchamlari responsiv qilindi */}
-          Платформа для оформления договоров аренды для операторов
-        </h3>
-        <p className='text-gray-500 py-4 sm:py-5 text-sm sm:text-base md:text-lg lg:text-[16px] leading-relaxed'> {/* Matn o'lchamlari responsiv qilindi */}
-          Разработана специализированная информационная система для автоматизации процесса отвода резервных земельных участков и оформления договоров аренды для операторов телекоммуникационной связи. Система обеспечивает полное цифровое сопровождение процесса – от подачи заявки до заключения договора, исключая бумажный документооборот и ускоряя взаимодействие между всеми участниками. Дистанционное подача заявок и предварительное согласование с уполномоченными органами, автоматизированное формирование и оформление договора, мониторинг всех этапов согласования заявок, обеспечивающий прозрачность и контроль процесса.
-          Преимущества: Новые возможности:
-        </p>
-        <div className='mt-4 py-4 flex flex-wrap text-xs sm:text-sm md:text-base lg:text-[14px] text-gray-600 gap-2 sm:gap-3 md:gap-[15px] justify-center md:justify-start'> {/* Mobil markazlash uchun justify-center qo'shildi */}
-          <p className='rounded-[15px] px-3 py-1.5 bg-gray-100 font-medium text-center'>✓ Высокий уровень защиты данных и ограниченный доступ к информации</p>
-          <p className='rounded-[15px] px-3 py-1.5 bg-gray-100 font-medium text-center'>✓ Автоматизированное формирование договора аренды</p>
-          <p className='rounded-[15px] px-3 py-1.5 bg-gray-100 font-medium text-center'>✓ Мониторинг прогресса согласования</p>
-          <p className='rounded-[15px] px-3 py-1.5 bg-gray-100 font-medium text-center'>✓ Удобный интерфейс </p>
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import portfolioimg1 from '../assets/Frame 2.svg';
+import { useTranslation } from 'react-i18next';
+
+const PortfolioLife = () => {
+  const { t } = useTranslation();
+
+  return (
+    <div className="min-h-screen font-sans bg-white px-[5%] py-8 sm:py-12 md:py-16">
+      <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-8 md:gap-12 lg:gap-16">
+        {/* Left Section — Image */}
+        <div className="w-full md:w-1/2 flex items-start justify-start order-2 md:order-1 mt-8 md:mt-0">
+          <img
+            src={portfolioimg1}
+            alt={t('portfolio_life.alt_text')}
+            className="w-full rounded-[20px] h-auto object-contain shadow-xl"
+          />
+        </div>
+
+        {/* Right Section — Text */}
+        <div className="w-full md:w-1/2 flex flex-col justify-between md:pl-8 order-1 md:order-2">
+          <div>
+            {/* Title */}
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-medium text-gray-700 mb-6 leading-snug">
+              {t('portfolio_life.title')}
+            </h3>
+            <p className="text-gray-600 text-sm md:text-base mb-6 leading-relaxed">
+              {t('portfolio_life.description')}
+            </p>
+
+            {/* Advantages */}
+            <p className="text-gray-600 text-sm md:text-base mb-6 leading-relaxed">
+              <span className="font-bold text-[#1f4b73]">   {t('advantag')}</span>{' '}
+              {t('portfolio_life.advantages')}
+            </p>
+
+            {/* New Features */}
+            <h4 className="text-[#1f4b73] text-base font-bold mb-4">
+              {t('chances')}
+            </h4>
+            <div className="grid grid-cols-2 gap-y-4 text-sm md:text-base">
+              {t('portfolio_education.features', { returnObjects: true }).map(
+                (feature, index) => (
+                  <div key={index} className="flex items-center">
+                    {/* The image shows a checkmark in a colored circle */}
+                    <span className="text-[#4D9C2E] mr-2  rounded-full w-5 h-5 flex items-center justify-center text-xs">
+                      ✓
+                    </span>
+                    <p className="text-gray-600">{feature}</p>
+                  </div>
+                )
+              )}
+            </div>
+            
+          </div>
         </div>
       </div>
+
+      {/* Footer is now outside the main flex container to align it with the content */}
+
+      <Outlet />
     </div>
-    <Outlet />
-  </div>
-)
-export default PortfolioLife
+  );
+};
+
+export default PortfolioLife;
