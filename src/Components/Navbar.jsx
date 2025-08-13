@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <nav className="bg-[#F7F7F7] fixed top-0 left-0 right-0 w-full z-50 shadow-sm">
-      <div className="flex items-center justify-between py-2 px-4 sm:px-6 md:px-[4%] max-w-7xl mx-auto">
+      <div className="flex items-center justify-between py-2 px-4 sm:px-4 md:px-[4%]  ">
         
         {/* Logo */}
         <Link to="/" onClick={closeMenu}>
