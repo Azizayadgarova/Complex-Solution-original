@@ -10,26 +10,26 @@ export default function Navbar() {
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
 
-  // Mobil menyu ochilganda sahifa scroll bo‘lishini bloklash
+  // Mobil menyu ochilganda scrollni bloklash
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
   }, [menuOpen]);
 
   return (
     <nav className="bg-[#F7F7F7] fixed top-0 left-0 right-0 w-full z-50 shadow-sm">
-      <div className="flex items-center justify-between py-3 px-4 sm:px-6 md:px-[4%] max-w-7xl mx-auto">
+      <div className="flex items-center justify-between py-2 px-4 sm:px-6 md:px-[4%] max-w-7xl mx-auto">
         
         {/* Logo */}
         <Link to="/" onClick={closeMenu}>
           <img
-            className="h-[50px] xs:h-[60px] sm:h-[70px] md:h-[80px] object-contain"
+            className="h-[45px] sm:h-[60px] md:h-[70px] lg:h-[80px] object-contain"
             src={coponylogo}
             alt="logo"
           />
         </Link>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex text-[16px] lg:text-[17px] font-medium gap-5 lg:gap-6 items-center">
+        <ul className="hidden md:flex text-[15px] lg:text-[17px] font-medium gap-4 lg:gap-6 items-center">
           {["aboute", "services", "portfolio", "blog", "contact"].map((path) => (
             <li key={path}>
               <Link
@@ -69,17 +69,17 @@ export default function Navbar() {
           aria-label="Toggle menu"
         >
           <span
-            className={`block w-6 h-0.5 bg-[#0E1F51] transition-transform duration-300 origin-left ${
+            className={`block w-6 h-0.5 bg-[#0E1F51] rounded transition-transform duration-300 origin-left ${
               menuOpen ? "rotate-45 translate-y-2" : ""
             }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-[#0E1F51] transition-opacity duration-300 ${
+            className={`block w-6 h-0.5 bg-[#0E1F51] rounded transition-opacity duration-300 ${
               menuOpen ? "opacity-0" : "opacity-100"
             }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-[#0E1F51] transition-transform duration-300 origin-left ${
+            className={`block w-6 h-0.5 bg-[#0E1F51] rounded transition-transform duration-300 origin-left ${
               menuOpen ? "-rotate-45 -translate-y-2" : ""
             }`}
           />
@@ -101,7 +101,7 @@ export default function Navbar() {
         }`}
       >
         <div className="p-5 sm:p-6 overflow-y-auto h-full">
-          <ul className="flex flex-col gap-2 sm:gap-3 text-[#0E1F51] font-medium text-[15px] sm:text-base">
+          <ul className="flex flex-col gap-3 sm:gap-4 text-[#0E1F51] font-medium text-[15px] sm:text-base">
             {["aboute", "services", "portfolio", "blog", "contact"].map((path) => (
               <li key={path}>
                 <Link
