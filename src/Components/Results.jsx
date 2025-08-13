@@ -13,18 +13,16 @@ const textVariants = {
     transition: {
       duration: 0.6,
       ease: 'easeOut',
-      staggerChildren: 0.2, // Ichki elementlar uchun kechikish
+      staggerChildren: 0.2,
     },
   },
 };
 
-// Ichki matn elementlari uchun variantlar
 const childTextVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
 
-// Natija bloki komponenti
 const ResultBlock = ({ imageSrc, imageAlt, title, description, reverse, delay }) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: false, amount: 0.3 });
@@ -35,8 +33,9 @@ const ResultBlock = ({ imageSrc, imageAlt, title, description, reverse, delay })
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, ease: 'easeOut', delay: delay }}
-      // className propidagi sintaksis tekshirildi va to'g'rilandi
-      className={`flex flex-col md:flex-row items-center gap-10 bg-white rounded-2xl border  shadow-xl p-6 md:p-10 group transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl `}
+      className={`flex flex-col md:flex-row items-center gap-6 sm:gap-10 lg:gap-14 
+                  bg-white rounded-2xl border shadow-xl p-4 sm:p-6 md:p-8 lg:p-10 
+                  group transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl`}
     >
       {/* Rasm qismi */}
       <motion.div
@@ -48,26 +47,28 @@ const ResultBlock = ({ imageSrc, imageAlt, title, description, reverse, delay })
         <img
           src={imageSrc}
           alt={imageAlt}
-          className="rounded-[16px] w-full h-auto shadow-lg transition-transform duration-300 group-hover:scale-[1.05]"
+          className="rounded-[16px] w-full h-auto max-h-[300px] sm:max-h-[400px] md:max-h-[500px] 
+                     object-cover shadow-lg transition-transform duration-300 group-hover:scale-[1.05]"
         />
       </motion.div>
 
       {/* Matn qismi */}
       <motion.div
-        variants={textVariants} // Matn konteyneri uchun variantlar
+        variants={textVariants}
         initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-        className={`w-full md:w-1/2 text-[#2A5E91] ${reverse ? 'md:order-1' : 'md:order-2'}`} // Matn rangini #2A5E91 ga o'zgartirdim
+        animate={inView ? 'visible' : 'hidden'}
+        className={`w-full md:w-1/2 text-[#2A5E91] text-center md:text-left 
+                    ${reverse ? 'md:order-1' : 'md:order-2'}`}
       >
         <motion.h2
-          variants={childTextVariants} // Sarlavha uchun variantlar
-          className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-4 sm:mb-5 leading-snug"
+          variants={childTextVariants}
+          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold mb-3 sm:mb-4 md:mb-5 leading-snug"
         >
           {title}
         </motion.h2>
         <motion.p
-          variants={childTextVariants} // Tavsif uchun variantlar
-          className="text-base sm:text-lg leading-relaxed text-[#444]"
+          variants={childTextVariants}
+          className="text-sm sm:text-base md:text-lg leading-relaxed text-[#444]"
         >
           {description}
         </motion.p>
@@ -76,33 +77,27 @@ const ResultBlock = ({ imageSrc, imageAlt, title, description, reverse, delay })
   );
 };
 
-// Asosiy Results komponenti
 const Results = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="bg-[#F7F7F7] py-20 px-4 sm:px-6 md:px-[4%]"> {/* Umumiy fon va padding */}
-      {/* Bo'lim sarlavhasi */}
-     
-
-      {/* Natija bloklari */}
-      <div className="flex flex-col gap-24 max-w-7xl mx-auto"> {/* Max-width va markazlash */}
+    <div className="bg-[#F7F7F7] py-10 sm:py-14 md:py-20 px-3 sm:px-5 md:px-[4%]">
+      <div className="flex flex-col gap-14 sm:gap-20 lg:gap-24 max-w-7xl mx-auto">
         <ResultBlock
           imageSrc={result1}
-          imageAlt={t('result_title_1')} // i18n kalitini ishlatdim
-          title={t('result_title_1')} // i18n kalitini ishlatdim
-          description={t('result_desc_1')} // i18n kalitini ishlatdim
+          imageAlt={t('result_title_1')}
+          title={t('result_title_1')}
+          description={t('result_desc_1')}
           reverse={false}
-          delay={0.2} // Animatsiya kechikishi
+          delay={0.2}
         />
-
         <ResultBlock
           imageSrc={result2}
-          imageAlt={t('result_title_2')} // i18n kalitini ishlatdim
-          title={t('result_title_2')} // i18n kalitini ishlatdim
-          description={t('result_desc_2')} // i18n kalitini ishlatdim
-          reverse={true} // Joylashuvni o'zgartirish
-          delay={0.4} // Animatsiya kechikishi
+          imageAlt={t('result_title_2')}
+          title={t('result_title_2')}
+          description={t('result_desc_2')}
+          reverse={true}
+          delay={0.4}
         />
       </div>
     </div>
@@ -110,4 +105,3 @@ const Results = () => {
 };
 
 export default Results;
-

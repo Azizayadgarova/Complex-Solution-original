@@ -6,7 +6,7 @@ import Navbar from "../Components/Navbar";
 
 export default function MainLayout() {
     return (
-        <div className="flex flex-col min-h-screen mt-[130px]  ">
+        <div className="flex flex-col min-h-screen mt-[10px]  ">
             <Navbar />
             <main className="grow">
                 <ScrollToTop />

@@ -12,26 +12,32 @@ const Abaute = () => {
 
   return (
     <div ref={ref} className="bg-white">
+      {/* ✅ Hero Section */}
       <div
-        className="relative py-[180px] text-center text-white bg-cover bg-center"
+        className="relative py-[120px] sm:py-[150px] md:py-[180px] text-center text-white bg-cover bg-center"
         style={{ backgroundImage: `url(${image})` }}
       >
-        {/* ✅ Overlay */}
+        {/* Overlay */}
         <div className="absolute inset-0 bg-[#355c6e] opacity-50 z-0"></div>
 
-        {/* ✅ Matn (overlay ustida bo'lishi uchun z-10) */}
-        <div className="relative z-10">
-          <h1 className="text-6xl font-bold mb-2">{t('aboute')}</h1>
-          <p className="text-[20px] font-bold text-white">
+        {/* Text */}
+        <div className="relative z-10 px-4 sm:px-6 md:px-8">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-2">
+            {t('aboute')}
+          </h1>
+          <p className="text-base sm:text-lg md:text-[20px] font-bold text-white">
             {t('home')} / {t('aboute')}
           </p>
         </div>
       </div>
-   <Results />
-      <OurStore />
-      <Advantages />
-   
-      <Projects />
+
+      {/* ✅ Sections */}
+      <div className="px-4 sm:px-6 md:px-8 lg:px-12">
+        <Results />
+        <OurStore />
+        <Advantages />
+        <Projects />
+      </div>
     </div>
   );
 };
