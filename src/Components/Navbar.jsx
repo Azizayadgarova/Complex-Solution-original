@@ -17,27 +17,27 @@ export default function Navbar() {
 
   return (
     <nav className="bg-[#F7F7F7] fixed top-0 left-0 right-0 w-full z-50 shadow-sm">
-      <div className="flex items-center justify-between py-2 px-4 sm:px-4 md:px-[4%]  ">
+      <div className="flex items-center justify-between py-2 px-4 sm:px-4 md:px-[3%]  ">
         
         {/* Logo */}
         <Link to="/" onClick={closeMenu}>
           <img
-            className="h-[45px] sm:h-[60px] md:h-[70px] lg:h-[80px] object-contain"
+            className="h-[45px] sm:h-[40px] md:h-[70px] lg:h-[80px] object-contain"
             src={coponylogo}
             alt="logo"
           />
         </Link>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex text-[15px] lg:text-[17px] font-medium gap-4 lg:gap-6 items-center">
+        <ul className="hidden md:flex text-[15px] lg:text-[17px] font-medium gap-4 lg:gap-5 items-center">
           {["aboute", "services", "portfolio", "blog", "contact"].map((path) => (
             <li key={path}>
               <Link
                 to={`/${path}`}
-                className="relative group pb-1 text-[#2a5e91] hover:text-[#1d456a] transition-colors"
+                className="relative group  text-[#2a5e91] hover:text-[#1d456a] transition-colors"
               >
                 <span>{t(path)}</span>
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2a5e91] transition-all duration-200 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2a5e91] transition-all duration-200 "></span>
               </Link>
             </li>
           ))}
@@ -65,21 +65,21 @@ export default function Navbar() {
         {/* Hamburger Button */}
         <button
           onClick={toggleMenu}
-          className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1"
+          className="md:hidden flex flex-col justify-center items-center w-7 h-8 gap-1"
           aria-label="Toggle menu"
         >
           <span
-            className={`block w-6 h-0.5 bg-[#0E1F51] rounded transition-transform duration-300 origin-left ${
+            className={`block w-5 h-0.5 bg-[#0E1F51] rounded transition-transform duration-300 origin-left ${
               menuOpen ? "rotate-45 translate-y-2" : ""
             }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-[#0E1F51] rounded transition-opacity duration-300 ${
+            className={`block w-5 h-0.5 bg-[#0E1F51] rounded transition-opacity duration-300 ${
               menuOpen ? "opacity-0" : "opacity-100"
             }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-[#0E1F51] rounded transition-transform duration-300 origin-left ${
+            className={`block w-5 h-0.5 bg-[#0E1F51] rounded transition-transform duration-300 origin-left ${
               menuOpen ? "-rotate-45 -translate-y-2" : ""
             }`}
           />
@@ -96,7 +96,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed top-0 right-0 w-[80%] max-w-[300px] h-screen bg-[#F7F7F7] z-50 shadow-lg transform transition-transform duration-300 ${
+        className={`md:hidden fixed top-0 right-0 w-[50%] max-w-[200px] h-screen bg-[#F7F7F7] z-50 shadow-lg transform transition-transform duration-300 ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
