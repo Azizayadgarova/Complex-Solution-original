@@ -12,12 +12,18 @@ export default function Navbar() {
 
   // Mobil menyu ochilganda scrollni bloklash
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
+    if (menuOpen) {
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
+    } else {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+    }
   }, [menuOpen]);
 
   return (
-    <nav className="bg-[#F7F7F7] fixed top-0 left-0 right-0 w-full z-50 shadow-sm">
-      <div className="flex items-center justify-between py-2 px-4 sm:px-4 md:px-[3%]  ">
+    <nav className="bg-[#F7F7F7] fixed top-0 left-0 right-0 w-full z-50 shadow-sm overflow-x-hidden">
+      <div className="flex items-center justify-between py-2 px-4 sm:px-4 md:px-[3%]">
         
         {/* Logo */}
         <Link to="/" onClick={closeMenu}>
@@ -34,10 +40,9 @@ export default function Navbar() {
             <li key={path}>
               <Link
                 to={`/${path}`}
-                className="relative group  text-[#2a5e91] hover:text-[#1d456a] transition-colors"
+                className="relative group text-[#2a5e91] hover:text-[#1d456a] transition-colors"
               >
                 <span>{t(path)}</span>
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2a5e91] transition-all duration-200 "></span>
               </Link>
             </li>
           ))}
@@ -99,6 +104,7 @@ export default function Navbar() {
         className={`md:hidden fixed top-0 right-0 w-[50%] max-w-[200px] h-screen bg-[#F7F7F7] z-50 shadow-lg transform transition-transform duration-300 ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
+        style={{ willChange: "transform" }}
       >
         <div className="p-5 sm:p-6 overflow-y-auto h-full">
           <ul className="flex flex-col gap-3 sm:gap-4 text-[#0E1F51] font-medium text-[15px] sm:text-base">
