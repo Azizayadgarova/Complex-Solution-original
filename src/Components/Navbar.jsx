@@ -10,7 +10,7 @@ export default function Navbar() {
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
 
-  // Mobil menyu ochilganda scrollni bloklash
+  // Mobil menyu ochilganda sahifa scroll bo‘lishini bloklash
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
   }, [menuOpen]);
@@ -88,7 +88,7 @@ export default function Navbar() {
 
       {/* Overlay */}
       <div
-        className={`md:hidden fixed inset-0 bg-black/40 transition-opacity duration-300 ${
+        className={`md:hidden fixed inset-0 bg-black/40 z-40 transition-opacity duration-300 ${
           menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={closeMenu}
@@ -96,11 +96,11 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed top-0 right-0 w-[80%] max-w-[300px] bg-[#F7F7F7] h-full shadow-lg transform transition-transform duration-300 ${
+        className={`md:hidden fixed top-0 right-0 w-[80%] max-w-[300px] h-screen bg-[#F7F7F7] z-50 shadow-lg transform transition-transform duration-300 ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="p-5 sm:p-6">
+        <div className="p-5 sm:p-6 overflow-y-auto h-full">
           <ul className="flex flex-col gap-2 sm:gap-3 text-[#0E1F51] font-medium text-[15px] sm:text-base">
             {["aboute", "services", "portfolio", "blog", "contact"].map((path) => (
               <li key={path}>
