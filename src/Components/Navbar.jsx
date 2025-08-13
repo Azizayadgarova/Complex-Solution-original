@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
 import coponylogo from '../assets/logo.png';
 
@@ -10,10 +10,19 @@ export default function Navbar() {
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
 
+  // Mobil menyu ochilganda scrollni bloklash
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [menuOpen]);
+
   return (
-    <nav className="bg-[#F7F7F7] fixed top-0 left-0 right-0 w-full z-50 shadow-sm">
+    <nav className="bg-[#F7F7F7] fixed top-0 left-0 right-0 w-full z-50 shadow-sm overflow-x-hidden">
       <div className="flex items-center justify-between py-3 px-4 sm:px-6 md:px-[4%] max-w-7xl mx-auto">
-        
+
         {/* Logo */}
         <Link to="/" onClick={closeMenu}>
           <img 
