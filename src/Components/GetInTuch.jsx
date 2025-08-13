@@ -87,7 +87,7 @@ const GetInTuch = () => {
               <div>
                 <p className="text-[#686868] text-sm">{t('phone')}</p>
                 <a href="tel:+998945160050" className="text-[#686868] text-sm hover:underline">
-                  +998 94 516 00 50
+                  +998 (91) 166-90-99
                 </a>
               </div>
             </div>
@@ -96,7 +96,7 @@ const GetInTuch = () => {
               <div>
                 <p className="text-[#686868] text-sm">{t('email')}</p>
                 <a href="mailto:info.exadot@gmail.com" className="text-[#686868] text-sm hover:underline">
-                  info.exadot@gmail.com
+                 uzcomplex-solutions@mail.ru
                 </a>
               </div>
             </div>
@@ -104,7 +104,7 @@ const GetInTuch = () => {
               <FaMapMarkerAlt className="text-[#2a5e91] text-2xl mt-1" />
               <div>
                 <p className="text-[#686868] text-sm">{t('visit_us')}</p>
-                <p className="text-[#686868] text-sm">Ташкент, ул.Лабзак 64А, 100128</p>
+                <p className="text-[#686868] text-sm">Ташкентский район, ул. ТКАД, д. 30</p>
               </div>
             </div>
           </div>
