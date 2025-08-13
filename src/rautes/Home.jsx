@@ -18,6 +18,8 @@ const Home = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
+  const isMobile = windowSize.width < 640;
+
   const handleClick = () => {
     navigate('/aboute');
   };
@@ -54,35 +56,33 @@ const Home = () => {
     return { x: 0, y: 0 };
   };
 
-  // Responsive doira o'lchamlari: katta ekranlarda katta, kichik ekranlarda kichikroq
   const circleSizes = {
-    large: windowSize.width < 640 ? 80 : 128, // 20rem yoki 32rem (px)
-    medium: windowSize.width < 640 ? 48 : 96, // 12rem yoki 24rem
-    small: windowSize.width < 640 ? 24 : 64,  // 6rem yoki 16rem
-    xsmall: windowSize.width < 640 ? 16 : 48  // 4rem yoki 12rem
+    large: isMobile ? 80 : 128,
+    medium: isMobile ? 48 : 96,
+    small: isMobile ? 24 : 64,
+    xsmall: isMobile ? 16 : 48
   };
 
-  // Katta ekranlar uchun joylashuvlar, kichiklar uchun kamaytirilgan va cheklangan
   const pos = {
     bottomLeft: {
-      x: windowSize.width * 0.1,
-      y: windowSize.height * 0.9
+      x: isMobile ? windowSize.width * 0.2 : windowSize.width * 0.1,
+      y: isMobile ? windowSize.height * 0.8 : windowSize.height * 0.9
     },
     topRight: {
-      x: windowSize.width * 0.9,
-      y: windowSize.height * 0.1
+      x: isMobile ? windowSize.width * 0.8 : windowSize.width * 0.9,
+      y: isMobile ? windowSize.height * 0.15 : windowSize.height * 0.1
     },
     center: {
       x: windowSize.width / 2,
       y: windowSize.height / 2
     },
     topLeft: {
-      x: windowSize.width * 0.15,
-      y: windowSize.height * 0.15
+      x: isMobile ? windowSize.width * 0.2 : windowSize.width * 0.15,
+      y: isMobile ? windowSize.height * 0.2 : windowSize.height * 0.15
     },
     bottomRight: {
-      x: windowSize.width * 0.85,
-      y: windowSize.height * 0.85
+      x: isMobile ? windowSize.width * 0.75 : windowSize.width * 0.85,
+      y: isMobile ? windowSize.height * 0.85 : windowSize.height * 0.85
     }
   };
 
@@ -90,7 +90,7 @@ const Home = () => {
     <div>
       <div className='relative bg-white min-h-screen md:h-[600px] overflow-hidden cursor-none'>
 
-        {/* Custom sichqoncha kursori */}
+        {/* Maxsus sichqoncha */}
         <div
           className="fixed w-6 h-6 bg-[#4CAF50] rounded-full pointer-events-none z-50 opacity-70"
           style={{
@@ -99,8 +99,7 @@ const Home = () => {
           }}
         />
 
-        {/* Dumaloq fon elementlari (sharchalar) */}
-        {/* 1-doira: pastki chapda */}
+        {/* 1 - Doira */}
         <div
           className="absolute bg-[#C8E6C9] rounded-full opacity-60 transition-all duration-500 ease-out z-20"
           style={{
@@ -112,7 +111,7 @@ const Home = () => {
           }}
         />
 
-        {/* 2-doira: yuqori o‘ngda */}
+        {/* 2 - Doira */}
         <div
           className="absolute bg-[#C8E6C9] rounded-full opacity-40 transition-all duration-500 ease-out z-20"
           style={{
@@ -124,20 +123,22 @@ const Home = () => {
           }}
         />
 
-        {/* 3-doira: o‘rta markaz */}
-        <div
-          className="absolute bg-[#C8E6C9] rounded-full opacity-70 border-4 border-[#4CAF50] transition-all duration-500 ease-out z-20"
-          style={{
-            width: circleSizes.medium,
-            height: circleSizes.medium,
-            top: '50%',
-            left: '50%',
-            transform: `translate(-50%, -50%) translate(${calculateAvoidance(pos.center.x, pos.center.y, mousePosition.x, mousePosition.y).x}px, ${calculateAvoidance(pos.center.x, pos.center.y, mousePosition.x, mousePosition.y).y}px)`,
-            animation: 'pulse 3s ease-in-out infinite'
-          }}
-        />
+        {/* 3 - Doira (markazdagi, faqat desktopda) */}
+        {!isMobile && (
+          <div
+            className="absolute bg-[#C8E6C9] rounded-full opacity-70 border-4 border-[#4CAF50] transition-all duration-500 ease-out z-20"
+            style={{
+              width: circleSizes.medium,
+              height: circleSizes.medium,
+              top: '50%',
+              left: '50%',
+              transform: `translate(-50%, -50%) translate(${calculateAvoidance(pos.center.x, pos.center.y, mousePosition.x, mousePosition.y).x}px, ${calculateAvoidance(pos.center.x, pos.center.y, mousePosition.x, mousePosition.y).y}px)`,
+              animation: 'pulse 3s ease-in-out infinite'
+            }}
+          />
+        )}
 
-        {/* 4-doira: yuqori chap */}
+        {/* 4 - Doira */}
         <div
           className="absolute bg-[#C8E6C9] rounded-full opacity-60 transition-all duration-500 ease-out z-20"
           style={{
@@ -149,7 +150,7 @@ const Home = () => {
           }}
         />
 
-        {/* 5-doira: pastki o‘ng */}
+        {/* 5 - Doira */}
         <div
           className="absolute bg-gray-200 rounded-full opacity-50 transition-all duration-500 ease-out z-20"
           style={{
@@ -168,13 +169,15 @@ const Home = () => {
             <h2 className='text-4xl sm:text-5xl lg:text-[60px] text-[#2a5e91] font-medium leading-tight mb-6'>
               {t('heading')}
             </h2>
-            <button onClick={handleClick} className='w-36 h-12 sm:w-40 sm:h-17 mt-4 px-6 py-3 bg-[#4CAF50] text-white rounded-md hover:bg-[#388E3C] transition-colors duration-300'>
+            <button
+              onClick={handleClick}
+              className='min-w-[160px] h-12 text-sm text-center mt-4 px-6 py-3 bg-[#4CAF50] text-white rounded-md hover:bg-[#388E3C] transition-colors duration-300'
+            >
               {t('view_more')}
             </button>
-        
           </div>
           <div className="md:w-1/2 flex justify-center relative z-10">
-            <img src={image} alt="Business growth" className="max-w-full h-[400px] h-auto relative z-0" />
+            <img src={image} alt="Business growth" className="max-w-full h-auto md:h-[400px]" />
           </div>
         </div>
 
@@ -192,18 +195,17 @@ const Home = () => {
         `}</style>
       </div>
 
-      {/* Pastki bo‘limlar */}
+      {/* Lower Sections */}
       <AbouteUs />
       <OurProcess />
       <Results />
-
       <OurService />
-
       <Statistics />
       <Skill />
       <Advantages />
       <Projects />
       <GetInTuch />
+
     </div>
   );
 };
