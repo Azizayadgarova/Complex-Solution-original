@@ -8,20 +8,21 @@ const PortfolioSector = () => {
 
   return (
     <div className="min-h-screen font-sans bg-white px-4 sm:px-[5%] py-6 sm:py-10 md:py-16">
-      <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-6 sm:gap-10 lg:gap-16">
+      {/* 🔲 Umumiy Card Container */}
+      <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 sm:p-8 transition-shadow hover:shadow-xl duration-300">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-6 sm:gap-10 lg:gap-16">
 
-        {/* Left Section — Image */}
-        <div className="w-full md:w-1/2 flex items-start justify-center md:justify-start order-2 md:order-1 mt-6 md:mt-0">
-          <img
-            src={portfolioimg6}
-            alt={t('portfolio_sector.title')}
-            className="w-full max-w-[450px] rounded-[20px] h-auto object-contain shadow-xl"
-          />
-        </div>
+          {/* Left Section — Image */}
+          <div className="w-full md:w-1/2 flex items-start justify-center md:justify-start order-2 md:order-1 mt-6 md:mt-0">
+            <img
+              src={portfolioimg6}
+              alt={t('portfolio_sector.title')}
+              className="w-full max-w-[450px] h-auto object-contain rounded-xl"
+            />
+          </div>
 
-        {/* Right Section — Text */}
-        <div className="w-full md:w-1/2 flex flex-col justify-between md:pl-6 order-1 md:order-2">
-          <div>
+          {/* Right Section — Text */}
+          <div className="w-full md:w-1/2 flex flex-col justify-between md:pl-6 order-1 md:order-2">
             {/* Title */}
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-700 mb-4 sm:mb-6 leading-snug text-center md:text-left">
               {t('portfolio_sector.title')}
@@ -51,6 +52,12 @@ const PortfolioSector = () => {
                   <p className="text-gray-600 text-sm sm:text-base">{feature}</p>
                 </div>
               ))}
+              <a
+                className="mt-6 text-sm sm:text-base font-medium text-center text-white bg-[#1f4b73] hover:bg-[#153655] transition-colors px-4 py-2 rounded-full"
+                href="https://bzonebarbershop.com/"
+              >
+                {t('view_more')} →
+              </a>
             </div>
           </div>
         </div>

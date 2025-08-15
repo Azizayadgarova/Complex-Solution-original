@@ -9,7 +9,7 @@ const PortfolioEducation = () => {
   return (
     <div className="min-h-screen font-sans bg-white px-[5%] py-8 sm:py-12 md:py-16">
       <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-8 md:gap-12 lg:gap-16">
-        
+
         {/* Left Section — Image */}
         <div className="w-full md:w-1/2 flex items-start justify-center md:justify-start order-2 md:order-1 mt-6 md:mt-0">
           <img
@@ -57,6 +57,13 @@ const PortfolioEducation = () => {
                   </div>
                 )
               )}
+              <a
+                className="inline-block mt-6 text-sm sm:text-base font-medium text-white bg-[#1f4b73] hover:bg-[#153655] transition-colors duration-300 px-4 py-2 rounded-full shadow-md"
+                href="https://centrbt.uz/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                 {t('view_more')}    → </a>
             </div>
           </div>
         </div>

@@ -17,8 +17,8 @@ const Portfolio = () => {
   const tabs = [
     { path: '', labelKey: 'all', icon: <FaList /> },
     { path: 'portfoliolife', labelKey: 'life', icon: <FaNetworkWired /> },
-    { path: 'portfoliomoments', labelKey: 'moments', icon: <FaHospital /> },
-    { path: 'portfolionature', labelKey: 'nature', icon: <FaSeedling /> },
+    { path: 'portfoliomoments', labelKey: 'nature', icon: <FaHospital /> },
+    { path: 'portfolionature', labelKey: 'moments', icon: <FaSeedling /> },
     { path: 'portfoliotravel', labelKey: 'travel', icon: <FaServer /> },
     { path: 'portfolioeducation', labelKey: 'education', icon: <FaBook /> },
     { path: 'portfoliosector', labelKey: 'sector', icon: <FaBriefcase /> },
