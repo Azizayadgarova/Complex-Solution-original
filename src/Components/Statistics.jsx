@@ -13,9 +13,9 @@ import {
 } from 'react-icons/fa';
 
 const data = [
-  { number: 250, titleKey: 'stats.projects', icon: <FaCog size={24} />, cardBg: 'bg-[#2A5E91]' },
-  { number: 20, titleKey: 'stats.services', icon: <FaCloud size={24} />, cardBg: 'bg-white' },
-  { number: 150, titleKey: 'stats.reviews', icon: <FaShieldAlt size={24} />, cardBg: 'bg-white' },
+  { number: 50, titleKey: 'stats.projects', icon: <FaCog size={24} />, cardBg: 'bg-[#2A5E91]' },
+  { number: 8, titleKey: 'stats.services', icon: <FaCloud size={24} />, cardBg: 'bg-white' },
+  { number: 100, titleKey: 'stats.reviews', icon: <FaShieldAlt size={24} />, cardBg: 'bg-white' },
   { number: 15, titleKey: 'stats.partners', icon: <FaBoxOpen size={24} />, cardBg: 'bg-[#2A5E91]' },
 ];
 

@@ -14,7 +14,7 @@ const AbouteUs = () => {
   };
 
   return (
-    <div className="bg-[] px-[4%] py-14 sm:py-16 md:py-20 lg:py-[100px]">
+    <div className=" px-[4%] py-14 sm:py-16 md:py-20 lg:py-[60px]">
       <div className="flex flex-col md:flex-row justify-between items-center gap-10">
 
         {/* Rasm qismi */}
