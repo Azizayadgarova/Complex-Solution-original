@@ -66,8 +66,8 @@
     "advantages_4_title": "Sifat kafolati",
     "advantages_4_content": "Yuqori sifat standartlari, jarayonlarning shaffofligi va mijozlar oldidagi majburiyatlar bizning ustuvorligimizdir.",
     "advantages_5_title": "Adaptivlik",
-    "advantag":"Afzalliklari:",
-    "chances":"Imkoniyatlari:",
+    "advantag": "Afzalliklari:",
+    "chances": "Imkoniyatlari:",
     "advantages_5_content": "Biz loyihalarni kengaytirish va o‘zgaruvchan talablar bilan moslashishda yuqori darajadagi moslashuvchanlikni taqdim etamiz.",
     "skill_title_part1": "Har bir soha uchun",
     "skill_title_highlight": "innovatsion",
@@ -113,18 +113,18 @@
             "Tezkor savdo"
         ]
     },
-   "portfolio_moment": {
-    "title": "Mijozlar uchun Data markaz Cloud xizmatlari boshqaruv paneli",
-    "description": "Data-markazning bulutli xizmatlarini boshqarish platformasi ishlab chiqilmoqda, u virtual va jismoniy serverlarni ajratish, virtual resurslarga kvotalarni boshqarish, «Virtual data-markaz» xizmatini taqdim etish va barcha Cloud-xizmatlarni boshqarishni o‘z ichiga oladi.",
-    "advantages": "Moslashuvchan masshtablash, markazlashtirilgan boshqaruv, yuqori unumdorlik va xavfsizlik.",
-    "features": [
-        "Avtomatlashtirilgan resurslarni ajratish",
-        "✓ Click, Payme, Paynet",
-        "✓ VIZA, UnionPay",
-        "✓ Virtual mashinalarni boshqarish",
-        "✓ Serverlar holatini monitoring qilish"
-    ]
-},
+    "portfolio_moment": {
+        "title": "Mijozlar uchun Data markaz Cloud xizmatlari boshqaruv paneli",
+        "description": "Data-markazning bulutli xizmatlarini boshqarish platformasi ishlab chiqilmoqda, u virtual va jismoniy serverlarni ajratish, virtual resurslarga kvotalarni boshqarish, «Virtual data-markaz» xizmatini taqdim etish va barcha Cloud-xizmatlarni boshqarishni o‘z ichiga oladi.",
+        "advantages": "Moslashuvchan masshtablash, markazlashtirilgan boshqaruv, yuqori unumdorlik va xavfsizlik.",
+        "features": [
+            "Avtomatlashtirilgan resurslarni ajratish",
+            "✓ Click, Payme, Paynet",
+            "✓ VIZA, UnionPay",
+            "✓ Virtual mashinalarni boshqarish",
+            "✓ Serverlar holatini monitoring qilish"
+        ]
+    },
     "portfolio_nature": {
         "title": "O‘zbekiston Respublikasi qishloq xo‘jalik yerlarini ijaraga berish yagona tizimi",
         "description": "Yer uchastkalari loyihalarini shakllantirish, vakolatli tashkilotlar bilan elektron kelishuv, uchastkalarni auksionga chiqarish, elektron ijara shartnomasi tuzish va kadastr hujjatlarini shakllantirish imkonini beruvchi tizim ishlab chiqildi va joriy etildi.",
