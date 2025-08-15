@@ -87,8 +87,8 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <div className='relative bg-white min-h-screen md:h-[600px] overflow-hidden cursor-none'>
+    <div className="overflow-x-hidden">
+      <div className='relative bg-white min-h-screen md:h-[600px] w-full overflow-hidden cursor-none'>
 
         {/* Maxsus sichqoncha */}
         <div
@@ -99,68 +99,37 @@ const Home = () => {
           }}
         />
 
-        {/* 1 - Doira */}
-        <div
-          className="absolute bg-[#C8E6C9] rounded-full opacity-60 transition-all duration-500 ease-out z-20"
-          style={{
-            width: circleSizes.large,
-            height: circleSizes.large,
-            bottom: -circleSizes.large / 2 + calculateAvoidance(pos.bottomLeft.x, pos.bottomLeft.y, mousePosition.x, mousePosition.y).y,
-            left: -circleSizes.large / 2 + calculateAvoidance(pos.bottomLeft.x, pos.bottomLeft.y, mousePosition.x, mousePosition.y).x,
-            animation: 'pulse 6s ease-in-out infinite'
-          }}
-        />
+        {/* Doiralar */}
+        {Object.entries(pos).map(([key, position], index) => {
+          const size = key === 'center' ? circleSizes.medium : circleSizes.large;
+          const avoidance = calculateAvoidance(position.x, position.y, mousePosition.x, mousePosition.y);
 
-        {/* 2 - Doira */}
-        <div
-          className="absolute bg-[#C8E6C9] rounded-full opacity-40 transition-all duration-500 ease-out z-20"
-          style={{
-            width: circleSizes.medium,
-            height: circleSizes.medium,
-            top: 40 + calculateAvoidance(pos.topRight.x, pos.topRight.y, mousePosition.x, mousePosition.y).y,
-            right: 80 + calculateAvoidance(pos.topRight.x, pos.topRight.y, mousePosition.x, mousePosition.y).x,
-            animation: 'pulse 4s ease-in-out infinite'
-          }}
-        />
+          const style = {
+            width: size,
+            height: size,
+            position: 'absolute',
+            borderRadius: '50%',
+            opacity: key === 'center' ? 0.7 : 0.6,
+            backgroundColor: key === 'bottomRight' ? '#E0E0E0' : '#C8E6C9',
+            border: key === 'center' ? '4px solid #4CAF50' : 'none',
+            transition: 'all 0.5s ease-out',
+            animation: 'pulse 5s ease-in-out infinite',
+          };
 
-        {/* 3 - Doira (markazdagi, faqat desktopda) */}
-        {!isMobile && (
-          <div
-            className="absolute bg-[#C8E6C9] rounded-full opacity-70 border-4 border-[#4CAF50] transition-all duration-500 ease-out z-20"
-            style={{
-              width: circleSizes.medium,
-              height: circleSizes.medium,
-              top: '50%',
-              left: '50%',
-              transform: `translate(-50%, -50%) translate(${calculateAvoidance(pos.center.x, pos.center.y, mousePosition.x, mousePosition.y).x}px, ${calculateAvoidance(pos.center.x, pos.center.y, mousePosition.x, mousePosition.y).y}px)`,
-              animation: 'pulse 3s ease-in-out infinite'
-            }}
-          />
-        )}
+          if (key === 'center') {
+            style.top = '50%';
+            style.left = '50%';
+            style.transform = `translate(-50%, -50%) translate(${avoidance.x}px, ${avoidance.y}px)`;
+          } else if (key.includes('bottom')) {
+            style.bottom = Math.min(windowSize.height - size / 2, position.y + avoidance.y);
+            style.left = position.x + avoidance.x;
+          } else {
+            style.top = position.y + avoidance.y;
+            style.left = position.x + avoidance.x;
+          }
 
-        {/* 4 - Doira */}
-        <div
-          className="absolute bg-[#C8E6C9] rounded-full opacity-60 transition-all duration-500 ease-out z-20"
-          style={{
-            width: circleSizes.small,
-            height: circleSizes.small,
-            top: 80 + calculateAvoidance(pos.topLeft.x, pos.topLeft.y, mousePosition.x, mousePosition.y).y,
-            left: 80 + calculateAvoidance(pos.topLeft.x, pos.topLeft.y, mousePosition.x, mousePosition.y).x,
-            animation: 'pulse 6s ease-in-out infinite'
-          }}
-        />
-
-        {/* 5 - Doira */}
-        <div
-          className="absolute bg-gray-200 rounded-full opacity-50 transition-all duration-500 ease-out z-20"
-          style={{
-            width: circleSizes.small,
-            height: circleSizes.small,
-            bottom: 80 + calculateAvoidance(pos.bottomRight.x, pos.bottomRight.y, mousePosition.x, mousePosition.y).y,
-            right: -30 + calculateAvoidance(pos.bottomRight.x, pos.bottomRight.y, mousePosition.x, mousePosition.y).x,
-            animation: 'pulse 4s ease-in-out infinite'
-          }}
-        />
+          return <div key={index} style={style} className="z-20" />;
+        })}
 
         {/* Asosiy kontent */}
         <div className="relative z-10 flex flex-col md:flex-row justify-between px-4 sm:px-8 lg:px-16 py-12 items-center text-center md:text-left">
@@ -205,7 +174,6 @@ const Home = () => {
       <Advantages />
       <Projects />
       <GetInTuch />
-
     </div>
   );
 };
