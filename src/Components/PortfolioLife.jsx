@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import portfolioimg1 from '../assets/Frame 2.svg';
 import { useTranslation } from 'react-i18next';
 
-const PortfolioEducation = () => {
+const PortfolioLife = () => {
   const { t } = useTranslation();
 
   return (
@@ -68,4 +68,4 @@ const PortfolioEducation = () => {
   );
 };
 
-export default PortfolioEducation;
+export default PortfolioLife;

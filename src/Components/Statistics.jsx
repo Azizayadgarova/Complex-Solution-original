@@ -16,7 +16,7 @@ const data = [
   { number: 50, titleKey: 'stats.projects', icon: <FaCog size={24} />, cardBg: 'bg-[#2A5E91]' },
   { number: 8, titleKey: 'stats.services', icon: <FaCloud size={24} />, cardBg: 'bg-white' },
   { number: 100, titleKey: 'stats.reviews', icon: <FaShieldAlt size={24} />, cardBg: 'bg-white' },
-  { number: 15, titleKey: 'stats.partners', icon: <FaBoxOpen size={24} />, cardBg: 'bg-[#2A5E91]' },
+  { number: 5, titleKey: 'stats.partners', icon: <FaBoxOpen size={24} />, cardBg: 'bg-[#2A5E91]' },
 ];
 
 const Statistics = () => {
