@@ -12,6 +12,7 @@
     };
 
     return (
+      
       <div className=" px-[4%] py-14 sm:py-16 md:py-20 lg:py-[60px]">
         <div className="flex flex-col md:flex-row justify-between items-center gap-10">
           <div className="w-full md:w-1/2 lg:w-[45%] flex justify-center md:justify-start">

@@ -5,7 +5,7 @@ import MainLayout from './layout/MainLayout';
 import AdminLayout from "./layout/AdminLayout";
 import SignIn from './Components/SignIn';
 import Home from "./rautes/Home";
-import Abaute from "./rautes/Abaute";
+import Abaute from './rautes/Abaute';
 import Blog from "./rautes/Blog";
 import Contact from "./rautes/Contact";
 import Portfolio from "./rautes/Portfolio";

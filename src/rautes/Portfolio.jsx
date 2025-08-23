@@ -17,8 +17,8 @@ const Portfolio = () => {
   const tabs = [
     { path: '', labelKey: 'all', icon: <FaList /> },
     { path: 'portfoliolife', labelKey: 'life', icon: <FaNetworkWired /> },
-    { path: 'portfoliomoments', labelKey: 'nature', icon: <FaHospital /> },
-    { path: 'portfolionature', labelKey: 'moments', icon: <FaSeedling /> },
+    { path: 'portfoliomoments', labelKey: 'moments', icon: <FaHospital /> },
+    { path: 'portfolionature', labelKey: 'nature', icon: <FaSeedling /> },
     { path: 'portfoliotravel', labelKey: 'travel', icon: <FaServer /> },
     { path: 'portfolioeducation', labelKey: 'education', icon: <FaBook /> },
     { path: 'portfoliosector', labelKey: 'sector', icon: <FaBriefcase /> },
@@ -53,7 +53,7 @@ const Portfolio = () => {
 
       {/* Tabs */}
       <div className="flex flex-wrap justify-center mb-[50px] sm:mb-[80px] gap-3 sm:gap-4 px-[4%] py-5 bg-gray-100">
-        {tabs.map(({ path, labelKey, icon }, index) => (
+        {tabs.map(({ path, labelKey, icon }) => (
           <NavLink
             key={path}
             to={path}

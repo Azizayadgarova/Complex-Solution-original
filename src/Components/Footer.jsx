@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { FaLinkedin, FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
@@ -8,15 +8,20 @@ const Footer = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  const handleSubmit = (e) => {
+  // 🔹 useCallback bilan optimallashtirilgan navigatsiya funksiyalari
+  const handleSubmit = useCallback((e) => {
     e.preventDefault();
     navigate('/signin');
-  };
+  }, [navigate]);
+
+  const goToContact = useCallback(() => {
+    navigate('/contact');
+  }, [navigate]);
 
   return (
     <footer className="relative text-white py-[100px] px-[5%] overflow-hidden">
 
-      {/* 🔴 Background video */}
+      {/* 🔴 Background video (preload + poster) */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
         src={footerVideo}
@@ -24,6 +29,8 @@ const Footer = () => {
         loop
         muted
         playsInline
+        preload="auto"
+        poster="/fallback.jpg"  // kerak bo‘lsa placeholder rasm
       />
 
       {/* 🔴 Overlay */}
@@ -38,18 +45,15 @@ const Footer = () => {
           <hr className="w-[50px] border-t-4 rounded-md border-white mb-4" />
           <p className="text-sm mb-4">{t('footer.about_us_text')}</p>
           <div className="flex gap-3">
-            <a href="#" className="bg-white text-[#0E1F51] p-2 rounded-full hover:bg-[#0E1F51] hover:text-white transition">
-              <FaLinkedin />
-            </a>
-            <a href="#" className="bg-white text-[#0E1F51] p-2 rounded-full hover:bg-[#0E1F51] hover:text-white transition">
-              <FaInstagram />
-            </a>
-            <a href="#" className="bg-white text-[#0E1F51] p-2 rounded-full hover:bg-[#0E1F51] hover:text-white transition">
-              <FaFacebook />
-            </a>
-            <a href="#" className="bg-white text-[#0E1F51] p-2 rounded-full hover:bg-[#0E1F51] hover:text-white transition">
-              <FaTwitter />
-            </a>
+            {[FaLinkedin, FaInstagram, FaFacebook, FaTwitter].map((Icon, idx) => (
+              <a
+                key={idx}
+                href="#"
+                className="bg-white text-[#0E1F51] p-2 rounded-full hover:bg-[#0E1F51] hover:text-white transition"
+              >
+                <Icon />
+              </a>
+            ))}
           </div>
         </div>
 
@@ -81,7 +85,7 @@ const Footer = () => {
             </button>
             <button
               type="button"
-              onClick={() => navigate('/contact')}
+              onClick={goToContact}
               className="bg-[#5c8ab7] hover:bg-[#1f3a6e] text-white py-2 rounded-md transition"
             >
               {t('contact_button')}

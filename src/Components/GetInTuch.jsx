@@ -1,7 +1,10 @@
-
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+
+// 🔹 Telegram configni tashqariga olib chiqamiz
+const TELEGRAM_TOKEN = 'YOUR_TELEGRAM_TOKEN'; 
+const TELEGRAM_CHAT_ID = 'YOUR_CHAT_ID';
 
 const GetInTuch = () => {
   const { t } = useTranslation();
@@ -16,17 +19,17 @@ const GetInTuch = () => {
 
   const [showThankYouModal, setShowThankYouModal] = useState(false);
 
-  const handleChange = (e) => {
+  // 🔹 useCallback bilan handleChange
+  const handleChange = useCallback((e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value,
     }));
-  };
+  }, []);
 
-  const sendToTelegram = async () => {
-    const token = '8040160776:AAHodRvx_Tpb7VJuQT8ES-IEjQkLY0NnSBA';
-    const chatId = '6304612170';
+  // 🔹 Telegramga yuborish
+  const sendToTelegram = useCallback(async () => {
     const text = `
 📥 Yangi murojaat!
 👤 Ism: ${formData.name}
@@ -37,19 +40,20 @@ const GetInTuch = () => {
     `;
 
     try {
-      const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      const res = await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: chatId, text }),
+        body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text }),
       });
       return res.ok;
     } catch (err) {
       console.error('Telegram error:', err);
       return false;
     }
-  };
+  }, [formData]);
 
-  const handleSubmit = async (e) => {
+  // 🔹 useCallback bilan submit
+  const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
 
     if (!formData.privacyAccepted) {
@@ -64,19 +68,19 @@ const GetInTuch = () => {
     } else {
       alert(t('message_not_sent_try_again'));
     }
-  };
+  }, [formData, sendToTelegram, t]);
 
-  const handleModalClose = () => {
+  const handleModalClose = useCallback(() => {
     setShowThankYouModal(false);
-  };
+  }, []);
 
   return (
-    <div className="py-20 px-4 sm:px-[4%] md:px-[4%] lg:px-[6%] bg-[#F7F7F7] ">
+    <div className="py-20 px-4 sm:px-[4%] md:px-[4%] lg:px-[6%] bg-[#F7F7F7]">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center lg:items-start">
         {/* Contact Info */}
         <div className="lg:w-1/2 text-left mt-[100px]">
           <h2 className="text-4xl md:text-5xl font-semibold text-[#2a5e91] mb-6">
-            {t('hello')} ! <span className="font-normal text-[#292D32]">{t('lets_talk')}</span>
+            {t('hello')}! <span className="font-normal text-[#292D32]">{t('lets_talk')}</span>
           </h2>
           <p className="text-[#686868] text-base">{t('call_anytime')}</p>
           <p className="text-[#686868] text-base mb-12">{t('thank_you_message')}</p>
@@ -96,7 +100,7 @@ const GetInTuch = () => {
               <div>
                 <p className="text-[#686868] text-sm">{t('email')}</p>
                 <a href="mailto:info.exadot@gmail.com" className="text-[#686868] text-sm hover:underline">
-                 uzcomplex-solutions@mail.ru
+                  uzcomplex-solutions@mail.ru
                 </a>
               </div>
             </div>
@@ -110,54 +114,28 @@ const GetInTuch = () => {
           </div>
         </div>
 
-{/* Form */}
-        <div className="lg:w-1/2 p-8 md:p-8 rounded-[35px] bg-white shadow-xl font-sans">
+        {/* Form */}
+        <div className="lg:w-1/2 p-8 rounded-[35px] bg-white shadow-xl font-sans">
           <form onSubmit={handleSubmit} className="space-y-6 p-2 rounded-xl">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-500 mb-2">
-                {t('name')}
-              </label>
-              <input
-                type="text"
-                name="name"
-                placeholder={t('name')}
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full bg-gray-100 text-base px-4 py-2 rounded-xl text-gray-800 placeholder-gray-400 border border-transparent focus:outline-none focus:border-gray-300 transition duration-200"
-                required
-              />
-            </div>
+            {/* Inputs */}
+            {['name', 'phone', 'email'].map((field) => (
+              <div key={field}>
+                <label htmlFor={field} className="block text-sm font-medium text-gray-500 mb-2">
+                  {t(field)}
+                </label>
+                <input
+                  type={field === 'email' ? 'email' : field === 'phone' ? 'tel' : 'text'}
+                  name={field}
+                  placeholder={t(field)}
+                  value={formData[field]}
+                  onChange={handleChange}
+                  className="w-full bg-gray-100 text-base px-4 py-2 rounded-xl text-gray-800 placeholder-gray-400 border border-transparent focus:outline-none focus:border-gray-300 transition duration-200"
+                  required
+                />
+              </div>
+            ))}
 
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-500 mb-2">
-                {t('phone')}
-              </label>
-              <input
-                type="tel"
-                name="phone"
-                placeholder={t('phone')}
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full bg-gray-100 text-base px-4 py-2 rounded-xl text-gray-800 placeholder-gray-400 border border-transparent focus:outline-none focus:border-gray-300 transition duration-200"
-                required
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-500 mb-2">
-                {t('email')}
-              </label>
-              <input
-                type="email"
-                name="email"
-                placeholder="jane@name.com"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full bg-gray-100 text-base px-4 py-2 rounded-xl text-gray-800 placeholder-gray-400 border border-transparent focus:outline-none focus:border-gray-300 transition duration-200"
-                required
-              />
-            </div>
-
+            {/* Message */}
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-500 mb-2">
                 {t('message')}
@@ -173,6 +151,7 @@ const GetInTuch = () => {
               ></textarea>
             </div>
 
+            {/* Privacy */}
             <div className="flex items-center gap-2">
               <input
                 type="checkbox"
@@ -185,10 +164,10 @@ const GetInTuch = () => {
               />
               <label htmlFor="privacyAccepted" className="text-gray-600 text-sm">
                 {t('privacy_policy_agree')}
-               
               </label>
             </div>
 
+            {/* Submit */}
             <button
               type="submit"
               className="w-full flex justify-center items-center gap-2 bg-[#4875a3] hover:bg-[#2a5e91] text-white font-semibold py-3 rounded-full transition duration-300 mt-8"
@@ -203,10 +182,11 @@ const GetInTuch = () => {
           </form>
         </div>
       </div>
-{/* Thank You Modal */}
+
+      {/* Thank You Modal */}
       {showThankYouModal && (
         <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 px-4">
-          <div className="bg-white rounded-lg p-8 shadow-2xl text-center max-w-sm w-full transform transition-all scale-100 animate-fade-in-up">
+          <div className="bg-white rounded-lg p-8 shadow-2xl text-center max-w-sm w-full animate-fade-in-up">
             <div className="mb-6">
               <div className="w-20 h-20 mx-auto rounded-full bg-[#E8E8FF] flex items-center justify-center">
                 <svg className="w-12 h-12 text-[#6A66FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -218,7 +198,7 @@ const GetInTuch = () => {
             <p className="text-sm sm:text-base text-gray-600 mb-6">{t('thank_you_message')}</p>
             <button
               onClick={handleModalClose}
-              className="px-6 py-3 bg-[#2a5e91] text-white text-sm sm:text-base rounded-md shadow-md transition duration-300 hover:bg-[#2a5e91] focus:ring-0"
+              className="px-6 py-3 bg-[#2a5e91] text-white text-sm sm:text-base rounded-md shadow-md transition duration-300 hover:bg-[#2a5e91]"
             >
               {t('ok_button')}
             </button>

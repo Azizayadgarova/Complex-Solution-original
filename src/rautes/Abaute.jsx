@@ -1,10 +1,11 @@
-import React, { useRef } from 'react';
-import { useTranslation } from 'react-i18next';
-import image from '../assets/aboute.png';
-import OurStore from '../Components/OurStore';
-import Advantages from '../Components/Advantages';
-import Projects from '../Components/Projects';
-import Results from '../Components/Results';
+import React, { useRef } from "react";
+import { useTranslation } from "react-i18next";
+
+import image from "../assets/aboute.png";
+import OurStore from "../Components/OurStore";
+import Advantages from "../Components/Advantages";
+import Projects from "../Components/Projects";
+import Results from "../Components/Results";
 
 const Abaute = () => {
   const { t } = useTranslation();
@@ -23,10 +24,10 @@ const Abaute = () => {
         {/* Text */}
         <div className="relative z-10 px-4 sm:px-6 md:px-8">
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-2">
-            {t('aboute')}
+            {t("aboute")}
           </h1>
           <p className="text-base sm:text-lg md:text-[20px] font-bold text-white">
-            {t('home')} / {t('aboute')}
+            {t("home")} / {t("aboute")}
           </p>
         </div>
       </div>
