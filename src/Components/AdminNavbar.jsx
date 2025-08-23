@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useAdmin } from '../context/AdminContext';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.webp';
 
 const AdminNavbar = () => {
   const { t, i18n } = useTranslation();

@@ -235,22 +235,22 @@ const OurProcess = () => {
       </div>
 
       {/* Custom Styles */}
-      <style jsx>{`
-        @media (max-width: 767px) {
-          .grid-cols-\\[1fr_auto_1fr\\] {
-            display: block;
-          }
-        }
-        
-        /* Smooth animations for reduced motion users */
-        @media (prefers-reduced-motion: reduce) {
-          * {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-          }
-        }
-      `}</style>
+   <style>{`
+  @media (max-width: 767px) {
+    .grid-cols-\\[1fr_auto_1fr\\] {
+      display: block;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+`}</style>
+
     </section>
   );
 };
