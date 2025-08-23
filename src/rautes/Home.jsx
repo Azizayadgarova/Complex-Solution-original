@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import image from '../assets/img.jpg';
+import image from '../assets/home.webp';
 import { useTranslation } from 'react-i18next';
 import AbouteUs from '../Components/AbouteUs';
 import OurProcess from '../Components/OurProcess';
