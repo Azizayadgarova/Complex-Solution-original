@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
-import coponylogo from '../assets/logo.png';
+import coponylogo from '../assets/logo.webp';
 
 const HOVER_COLOR = '#2a5e91';
 
