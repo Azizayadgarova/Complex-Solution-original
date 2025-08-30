@@ -1,11 +1,11 @@
-// src/router.jsx (yoki qayerda bo‘lsa)
-import React from 'react';
-import { createHashRouter } from 'react-router-dom';
-import MainLayout from './layout/MainLayout';
+// src/router.jsx
+import React from "react";
+import { createHashRouter } from "react-router-dom";
+import MainLayout from "./layout/MainLayout";
 import AdminLayout from "./layout/AdminLayout";
-import SignIn from './Components/SignIn';
+import SignIn from "./Components/SignIn";
 import Home from "./rautes/Home";
-import Abaute from './rautes/Abaute';
+import Abaute from "./rautes/Abaute";
 import Blog from "./rautes/Blog";
 import Contact from "./rautes/Contact";
 import Portfolio from "./rautes/Portfolio";
@@ -22,7 +22,9 @@ import Advantage2 from "./Components/Advantage2";
 import Advantage3 from "./Components/Advantage3";
 import Advantage4 from "./Components/Advantage4";
 import Advantage5 from "./Components/Advantage5";
-import ProtectedRoute from './ProtectedRoute';
+import ProtectedRoute from "./ProtectedRoute";
+import AdminComponent from "./Components/AdminComponent";
+import ContactUs from "./Components/ContactUs";
 
 const router = createHashRouter([
   {
@@ -33,7 +35,7 @@ const router = createHashRouter([
       { path: "aboute", element: <Abaute /> },
       {
         path: "services",
-        element: <Servises/>,
+        element: <Servises />,
         children: [
           { index: true, element: <Advantage1 /> },
           { path: "one", element: <Advantage2 /> },
@@ -60,7 +62,7 @@ const router = createHashRouter([
     ],
   },
 
-  // ✅ Admin panel — ProtectedRoute bilan himoyalangan
+  // ✅ Admin panel
   {
     path: "/main",
     element: (
@@ -69,15 +71,13 @@ const router = createHashRouter([
       </ProtectedRoute>
     ),
     children: [
-      { index: true, element: <div>Asosiy sahifa</div> },
-      // boshqa admin sahifalar ham shu yerga qo‘shiladi
+      { index: true, element: <ContactUs /> }, // default sahifa
+      { path: "projects", element: <AdminComponent /> },
+      { path: "contacts", element: <ContactUs /> },
     ],
   },
 
-  {
-    path: '/signin',
-    element: <SignIn />,
-  },
+  { path: "/signin", element: <SignIn /> },
 ]);
 
 export default router;

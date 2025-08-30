@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 // 🔹 Telegram configni tashqariga olib chiqamiz
-const TELEGRAM_TOKEN = 'YOUR_TELEGRAM_TOKEN'; 
+const TELEGRAM_TOKEN = 'YOUR_TELEGRAM_TOKEN';
 const TELEGRAM_CHAT_ID = 'YOUR_CHAT_ID';
 
 const GetInTuch = () => {
@@ -29,25 +29,23 @@ const GetInTuch = () => {
   }, []);
 
   // 🔹 Telegramga yuborish
-  const sendToTelegram = useCallback(async () => {
-    const text = `
-📥 Yangi murojaat!
-👤 Ism: ${formData.name}
-📞 Telefon: ${formData.phone}
-📧 Email: ${formData.email}
-💬 Xabar: ${formData.message}
-✅ Maxfiylik siyosati qabul qilindi: ${formData.privacyAccepted ? 'Ha' : 'Yo‘q'}
-    `;
+  const sendToApi = useCallback(async () => {
 
     try {
-      const res = await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+      const res = await fetch("https://complex-solution-2.onrender.com/api/contacts", {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          message: formData.message,
+          privacyAccepted: formData.privacyAccepted,
+        }),
       });
       return res.ok;
     } catch (err) {
-      console.error('Telegram error:', err);
+      console.error('API error:', err);
       return false;
     }
   }, [formData]);
@@ -61,14 +59,14 @@ const GetInTuch = () => {
       return;
     }
 
-    const isSent = await sendToTelegram();
+    const isSent = await sendToApi();
     if (isSent) {
       setFormData({ name: '', phone: '', email: '', message: '', privacyAccepted: false });
       setShowThankYouModal(true);
     } else {
       alert(t('message_not_sent_try_again'));
     }
-  }, [formData, sendToTelegram, t]);
+  }, [formData, sendToApi, t]);
 
   const handleModalClose = useCallback(() => {
     setShowThankYouModal(false);

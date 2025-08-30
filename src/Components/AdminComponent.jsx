@@ -40,11 +40,7 @@ const AdminComponent = () => {
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem('adminUser');
-    localStorage.removeItem('username');
-    navigate('/signin');
-  };
+ 
 
   useEffect(() => {
     fetchProjects();
@@ -144,7 +140,7 @@ const AdminComponent = () => {
         <h2 className="text-xl font-bold text-[#0E1F51]">Admin Paneli</h2>
         <div className="flex gap-2 items-center">
           <span className="text-[#0E1F51] font-semibold">{username || 'Foydalanuvchi'}</span>
-          <button onClick={handleLogout} className="bg-red-500 text-white px-3 py-1 rounded">Chiqish</button>
+          
         </div>
       </div>
 
