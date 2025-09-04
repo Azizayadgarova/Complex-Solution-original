@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
-const Projects = () => {
+  // src/Components/Projects.jsx
+import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+
+const Projects = ({ limit }) => {   // ✅ limit props qo‘shildi
   const { t, i18n } = useTranslation();
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,15 +14,15 @@ const Projects = () => {
     setError(null);
 
     fetch(`https://complex-solution-2.onrender.com/api/projects?lang=${i18n.language}`)
-      .then(res => {
-        if (!res.ok) throw new Error('Network response was not ok');
+      .then((res) => {
+        if (!res.ok) throw new Error("Network response was not ok");
         return res.json();
       })
-      .then(data => {
+      .then((data) => {
         setProjects(data || []);
         setLoading(false);
       })
-      .catch(err => {
+      .catch((err) => {
         setError(err.message);
         setLoading(false);
       });
@@ -29,7 +31,7 @@ const Projects = () => {
   if (loading) {
     return (
       <p className="text-center mt-10 text-gray-500 text-lg animate-pulse">
-        {t('projects_loading')}...
+        {t("projects_loading")}...
       </p>
     );
   }
@@ -37,64 +39,72 @@ const Projects = () => {
   if (error) {
     return (
       <p className="text-center mt-10 text-red-600 text-lg font-medium">
-        {t('projects_error')}: {error} 😟
+        {t("projects_error")}: {error} 
       </p>
     );
   }
 
-  return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 bg-white">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1A2B5B] uppercase tracking-wide">
-          {t('projects_title')}
-        </h2>
-      </div>
+  // ✅ Agar limit bo‘lsa, shuncha cardni ko‘rsatamiz
+  const displayedProjects = limit ? projects.slice(0, limit) : projects;
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 justify-items-center">
-        {projects.map((project) => (
-          <div
-            key={project._id}
-            className="relative bg-[#2a5e91] rounded-[5px] shadow-xl overflow-hidden w-full max-w-full sm:max-w-md lg:max-w-lg"
-          >
-            {project.img && (
-              <div className="relative">
-                <img
-                  src={project.img}
-                  alt={project.name}
-                  className="w-[92%] mx-auto mt-[20px] rounded-[5px] h-60 sm:h-72 object-cover"
-                />
-                <div className="absolute bottom-0 left-0 flex items-stretch">
-                  <div className="w-2 sm:w-3 bg-[#1A2B5B]"></div>
-                  <div className="relative bg-[#5A86B0] text-white py-2 px-4 sm:px-6 shadow-md clip-path-arrow-right">
-                    <h3 className="text-lg sm:text-xl font-bold">{project.name}</h3>
-                  </div>
+  return (
+    <div className="min-h-screen font-sans bg-white sm:px-6 py-8 sm:py-12 md:py-16">
+      <h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-medium text-[#1A2B5B] uppercase mb-12">
+        {t("projects_title")}
+      </h2>
+
+      <div className="flex flex-col gap-12 sm:gap-16">
+        {displayedProjects.length > 0 ? (
+          displayedProjects.map((project, index) => (
+            <div
+              key={project._id}
+              className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 sm:p-8 transition-shadow hover:shadow-xl duration-300"
+            >
+              <div
+                className={`flex flex-col md:flex-row justify-between items-center md:items-start gap-6 sm:gap-10 lg:gap-16 ${index % 2 === 1 ? "md:flex-row-reverse" : ""}`}
+              >
+                {/* Left Section — Image */}
+                <div className="w-full md:w-1/2 flex items-center justify-center order-2 md:order-1">
+                  <img
+                    src={project.img}
+                    alt={project.name}
+                    className="w-full max-w-md md:max-w-full rounded-xl h-auto object-contain"
+                  />
+                </div>
+
+                {/* Right Section — Text */}
+                <div className="w-full md:w-1/2 flex flex-col justify-between order-1 md:order-2 md:pl-6 lg:pl-10">
+                  <h3 className="text-xl sm:text-2xl md:text-4xl font-semibold text-gray-700 mb-4 sm:mb-6 leading-snug">
+                    {project.name}
+                  </h3>
+
+                  <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed">
+                    {project.about || t("projects_no_description")}
+                  </p>
+
+                  <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed">
+                    <span className="font-bold text-[#1f4b73]">
+                      {t("advantag")}
+                    </span>{" "}
+                    {project.advantages}
+                  </p>
+
+                  {/* Button */}
+                  <a
+                    className="mt-6 inline-block text-sm sm:text-base font-medium text-white w-[44%] bg-[#1f4b73] hover:bg-[#153655] transition-colors duration-300 px-6 sm:px-10 py-2 rounded-full shadow-md"
+                    href={project.link || project.repoLink || "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t("expand")} →
+                  </a>
                 </div>
               </div>
-            )}
-
-            <div className="p-4 sm:p-6 bg-white">
-              <p className="text-base sm:text-lg mb-4 font-bold">{project.advantages}</p>
-              <p className="text-gray-600 text-sm sm:text-base mb-6 leading-relaxed">
-                {project.about || t('projects_no_description')}
-              </p>
-              <a
-                href={project.link || project.repoLink || '#'}
-                target={project.link || project.repoLink ? '_blank' : '_self'}
-                rel="noopener noreferrer"
-                className="absolute bottom-4 right-4 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-[#2a5e91] text-white text-lg sm:text-xl transition-all duration-300 transform hover:scale-110 hover:shadow-lg"
-                style={{
-                  clipPath: 'polygon(0% 0%, 100% 0%, 100% 70%, 50% 100%, 0% 70%)',
-                }}
-              >
-                <span className="transform -rotate-45 block">&#10140;</span>
-              </a>
             </div>
-          </div>
-        ))}
-
-        {projects.length === 0 && (
-          <p className="text-center w-full text-gray-600 text-lg sm:text-xl col-span-full">
-            {t('projects_no_projects_found')} 😞
+          ))
+        ) : (
+          <p className="text-center text-gray-600 text-lg sm:text-xl">
+            {t("projects_no_projects_found")} 😞
           </p>
         )}
       </div>

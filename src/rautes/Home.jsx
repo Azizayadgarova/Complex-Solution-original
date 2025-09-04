@@ -97,8 +97,8 @@ const Home = () => {
           ? Math.random() * 40
           : Math.random() * 20
         : isLarge
-        ? Math.random() * 60
-        : Math.random() * 30;
+          ? Math.random() * 60
+          : Math.random() * 30;
 
       return {
         x: Math.random() * window.innerWidth,
@@ -179,11 +179,20 @@ const Home = () => {
       <AbouteUs />
       <OurProcess />
       <Results />
-      <OurService />
+      <OurService />a
       <Statistics />
       <Skill />
       <Advantages />
-      <Projects />
+      <Projects limit={2} />   {/* ✅ faqat 2 ta project chiqadi */}
+
+      <div className="text-center ">
+        <button
+          onClick={() => navigate("/portfolio")}
+          className="px-6 py-3 bg-[#1f4b73] text-white mb-6 rounded-full hover:bg-[#153655] transition"
+        >
+          {t("view_more")} →
+        </button>
+      </div>
       <GetInTuch />
     </div>
   );
