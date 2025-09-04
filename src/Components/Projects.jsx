@@ -49,7 +49,7 @@ const Projects = ({ limit }) => {   // ✅ limit props qo‘shildi
 
   return (
     <div className="min-h-screen font-sans bg-white sm:px-6 py-8 sm:py-12 md:py-16">
-      <h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-medium text-[#1A2B5B] uppercase mb-12">
+      <h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-medium text-[#1f4b73] uppercase mb-12">
         {t("projects_title")}
       </h2>
 
@@ -68,13 +68,13 @@ const Projects = ({ limit }) => {   // ✅ limit props qo‘shildi
                   <img
                     src={project.img}
                     alt={project.name}
-                    className="w-full max-w-md md:max-w-full rounded-xl h-auto object-contain"
+                    className="w-full max-w-md h-[490px] raunded-[15%] md:max-w-full rounded-xl h-auto object-contain"
                   />
                 </div>
 
                 {/* Right Section — Text */}
                 <div className="w-full md:w-1/2 flex flex-col justify-between order-1 md:order-2 md:pl-6 lg:pl-10">
-                  <h3 className="text-xl sm:text-2xl md:text-4xl font-semibold text-gray-700 mb-4 sm:mb-6 leading-snug">
+                  <h3 className="text-xl sm:text-2xl md:text-4xl font-semibold text-[#1f4b73] mb-4 sm:mb-6 leading-snug">
                     {project.name}
                   </h3>
 
