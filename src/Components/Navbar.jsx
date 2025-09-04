@@ -77,7 +77,7 @@ export default function Navbar() {
 
           {/* Desktop menu */}
           <ul className="hidden lg:flex text-[14px] xl:text-[16px] font-medium gap-3 xl:gap-5 items-center">
-            {["aboute", "services", "portfolio", "blog", "contact"].map((path) => (
+            {["aboute", "services", "portfolio",  "contact"].map((path) => (
               <li key={path}>
                 <Link
                   to={`/${path}`}
