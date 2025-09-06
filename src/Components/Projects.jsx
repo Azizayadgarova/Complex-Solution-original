@@ -58,7 +58,7 @@ const Projects = ({ limit }) => {   // ✅ limit props qo‘shildi
           displayedProjects.map((project, index) => (
             <div
               key={project._id}
-              className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 sm:p-8 transition-shadow hover:shadow-xl duration-300"
+              className="bg-white rounded-3xl shadow-lg border border-gray-200 p-6 sm:p-8 transition-shadow hover:shadow-xl duration-300"
             >
               <div
                 className={`flex flex-col md:flex-row justify-between items-center md:items-start gap-6 sm:gap-10 lg:gap-16 ${index % 2 === 1 ? "md:flex-row-reverse" : ""}`}
@@ -68,7 +68,7 @@ const Projects = ({ limit }) => {   // ✅ limit props qo‘shildi
                   <img
                     src={project.img}
                     alt={project.name}
-                    className="w-full max-w-md h-[490px] raunded-[15%] md:max-w-full rounded-xl h-auto object-contain"
+                    className="w-full max-w-md h-[20%] raunded-[15%] md:max-w-full rounded-xl  object-contain"
                   />
                 </div>
 

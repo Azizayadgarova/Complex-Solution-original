@@ -10,13 +10,7 @@ import Abaute from "./rautes/Abaute";
 import Contact from "./rautes/Contact";
 import Portfolio from "./rautes/Portfolio";
 import Servises from "./rautes/Servises";
-import PortfolioAll from "./Components/PortfolioAll";
-import PortfolioLife from "./Components/PortfolioLife";
-import PortfolioMoments from "./Components/PortfolioMoments";
-import PortfolioNature from "./Components/PortfolioNature";
-import PortfolioTravel from "./Components/PortfolioTravel";
-import PortfolioEducation from "./Components/PortfolioEducation";
-import PortfolioSector from "./Components/PortfolioSector";
+
 import Advantage1 from "./Components/Advantage1";
 import Advantage2 from "./Components/Advantage2";
 import Advantage3 from "./Components/Advantage3";
@@ -45,17 +39,7 @@ const router = createHashRouter([
         ],
       },
       {
-        path: "portfolio",
-        element: <Portfolio />,
-        children: [
-          { index: true, element: <PortfolioAll /> },
-          { path: "portfoliolife", element: <PortfolioLife /> },
-          { path: "portfoliomoments", element: <PortfolioMoments /> },
-          { path: "portfolionature", element: <PortfolioNature /> },
-          { path: "portfoliotravel", element: <PortfolioTravel /> },
-          { path: "portfolioeducation", element: <PortfolioEducation /> },
-          { path: "portfoliosector", element: <PortfolioSector /> },
-        ],
+        path: "portfolio", element: <Portfolio />
       },
       { path: "contact", element: <Contact /> },
     ],
