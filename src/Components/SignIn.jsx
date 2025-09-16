@@ -150,6 +150,7 @@ const SignIn = () => {
                 className="w-full px-3 py-2 sm:px-4 sm:py-3 border-0  rounded-md pr-10 focus:ring-0 focus:outline-none shadow-sm text-xs sm:text-sm"
                 required
               />
+              <h2>helo</h2>
               <button
                 type="button"
                 onClick={() => setShowPassword((prev) => !prev)}
