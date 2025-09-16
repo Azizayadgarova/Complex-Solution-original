@@ -132,9 +132,10 @@ const SignIn = () => {
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
               placeholder={t('phonePlaceholder')}
-              className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#0E1F51] shadow-sm text-xs sm:text-sm"
+              className="w-full px-3 py-2 sm:px-4 sm:py-3 border-0 outline-none focus:ring-0 focus:outline-none rounded-md shadow-sm text-xs sm:text-sm"
               required
             />
+
           </div>
 
           <div>
@@ -146,7 +147,7 @@ const SignIn = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder={t('passwordPlaceholder')}
-                className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-md pr-10 focus:ring-2 focus:ring-[#0E1F51] shadow-sm text-xs sm:text-sm"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 border-0  rounded-md pr-10 focus:ring-0 focus:outline-none shadow-sm text-xs sm:text-sm"
                 required
               />
               <button

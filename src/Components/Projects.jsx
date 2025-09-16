@@ -68,7 +68,7 @@ const Projects = ({ limit }) => {   // ✅ limit props qo‘shildi
                   <img
                     src={project.img}
                     alt={project.name}
-                    className="w-full max-w-md h-[20%] raunded-[15%] md:max-w-full rounded-xl  object-contain"
+                    className="w-full max-w-md h-[20%] raunded-[15%] md:max-w-full rounded-xl h-auto object-contain"
                   />
                 </div>
 
