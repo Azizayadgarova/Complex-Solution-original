@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-
 import result1 from '../assets/result1.webp';
 import result2 from '../assets/result2.webp';
 

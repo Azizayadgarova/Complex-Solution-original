@@ -64,7 +64,7 @@ const CalendarCheckIcon = (props) => (
 
 
 // Asosiy bo‘lim komponenti
-const Advantage1 = () => {
+const Advantage2 = () => {
   const { t } = useTranslation();
 
   const items = [
@@ -113,4 +113,4 @@ const Advantage1 = () => {
   );
 };
 
-export default Advantage1;
+export default Advantage2;
