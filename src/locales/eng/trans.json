@@ -6,6 +6,7 @@
   "contact": "Contact",
   "get_in_touch": "Get In Touch",
   "home": "Home",
+  "advantag": "Advantages:",
   "intro": "We Are Here",
   "heading": "Better Insights For Business Growth",
   "view_more": "View More",
@@ -129,18 +130,18 @@
     "project": "Project: CENTRBT",
     "linkText": "Link: https://centrbt.uz/"
   },
-"portfolio_moment": {
+  "portfolio_moment": {
     "title": "Cloud Services Management Panel of the Data Center for Clients",
     "description": "A platform is being developed to manage the data center’s cloud services, including allocation of virtual and physical servers, management of quotas for virtual resources, provision of the 'Virtual Data Center' service, and administration of all cloud services of the data center.",
     "advantages": "Flexible scalability, centralized management, high performance, and security.",
     "features": [
-        "Automated resource allocation",
-        "✓ Click, Payme, Paynet",
-        "✓ VIZA, UnionPay",
-        "✓ Virtual machine management",
-        "✓ Server status monitoring"
+      "Automated resource allocation",
+      "✓ Click, Payme, Paynet",
+      "✓ VIZA, UnionPay",
+      "✓ Virtual machine management",
+      "✓ Server status monitoring"
     ]
-},
+  },
   "portfolio_nature": {
     "title": "Unified System for Leasing Agricultural Lands of the Republic of Uzbekistan",
     "description": "A system has been developed and implemented that enables the formation of land plot projects, electronic coordination with authorized organizations, auctioning of plots, conclusion of electronic lease agreements, and generation of cadastral documents.",
@@ -168,19 +169,19 @@
     ]
   },
   "portfolio_natur": {
-  "title": "Information system for a pharmacy chain in Navoi, Uzbekistan",
-  "description": "A system developed for NAVBAXOR PHARM LLC enabled online management and monitoring of all pharmacies and warehouses, optimization of procurement, accounting, and logistics processes, as well as significantly increasing staff productivity.",
-  "advantages": "Centralized management, quick access to data, reduced errors, and cost savings.",
-  "features": [
-    "OFD & XPrinter",
-    "Orbit scanner",
-    "Order automation",
-    "Online stock monitoring",
-    "Pharmacy inventory",
-    "Invoices",
-    "Quick sale"
-  ]
-},
+    "title": "Information system for a pharmacy chain in Navoi, Uzbekistan",
+    "description": "A system developed for NAVBAXOR PHARM LLC enabled online management and monitoring of all pharmacies and warehouses, optimization of procurement, accounting, and logistics processes, as well as significantly increasing staff productivity.",
+    "advantages": "Centralized management, quick access to data, reduced errors, and cost savings.",
+    "features": [
+      "OFD & XPrinter",
+      "Orbit scanner",
+      "Order automation",
+      "Online stock monitoring",
+      "Pharmacy inventory",
+      "Invoices",
+      "Quick sale"
+    ]
+  },
   "footer": {
     "about_us": "About Us",
     "about_us_text": "COMPLEX SOLUTIONS LLC is a full-cycle IT service provider focused on delivering innovative, scalable, and secure digital solutions for businesses.",

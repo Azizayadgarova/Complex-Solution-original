@@ -70,20 +70,20 @@ const Advantage2 = () => {
   const items = [
     {
       number: '01',
-      title: t('tech_support_1_title'),
-      description: t('tech_support_1_desc'),
+      title: t('documentation_1_title'),
+      description: t('documentation_1_desc'),
       icon: HeadphonesIcon,
     },
     {
       number: '02',
-      title: t('tech_support_2_title'),
-      description: t('tech_support_2_desc'),
+      title: t('documentation_2_title'),
+      description: t('documentation_2_desc'),
       icon: MessageCircleIcon,
     },
     {
       number: '03',
-      title: t('tech_support_3_title'),
-      description: t('tech_support_3_desc'),
+      title: t('documentation_3_title'),
+      description: t('documentation_3_desc'),
       icon: CalendarCheckIcon,
     }
   ];
@@ -93,7 +93,7 @@ const Advantage2 = () => {
       {/* Sarlavha */}
       <div className="flex flex-col items-center text-center mb-10 sm:mb-12 md:mb-16">
         <h4 className="text-2xl sm:text-3xl md:text-4xl lg:text-[36px] w-full md:w-2/3 lg:w-1/2 text-gray-700 font-bold leading-snug">
-          {t('tech_support_title')}
+          {t('documentation_title')}
         </h4>
       </div>
 
